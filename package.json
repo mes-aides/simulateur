@@ -76,6 +76,7 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build --no-clean",
+    "build:netlify": "rm -fr dist && cp -r public dist && node build-netlify-redirect",
     "lint": "vue-cli-service lint",
     "test:unit": "vue-cli-service test:unit",
     "prestart": "npm run build && npm run stats",

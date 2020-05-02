@@ -1,0 +1,114 @@
+locale: fr
+backend:
+  name: git-gateway
+publish_mode: editorial_workflow
+media_folder: "public/img"
+public_folder: "/img"
+collections:
+  - name: partenaires
+    label: Partenaires
+    label_singular: Partenaire
+    identifier_field: name
+    folder: "data/partenaires"
+    create: true
+    editor:
+      preview: false
+    slug: "{{id}}"
+    format: yml
+    fields:
+      - label: Nom
+        name: name
+        widget: string
+      - label: Identifiant
+        name: id
+        hint: assurance_retraite, departement_gironde sont des exemples (seules les minuscules et _ sont autorisés)
+        pattern:
+          - "^[a-z_]+$"
+          - Les identifiants doivent avoir une forme simple (seules les minuscules et _ sont autorisés)
+        widget: string
+      - label: Logo
+        name: imgSrc
+        widget: image
+        allow_multiple: false
+      - label: Aides de test
+        name: testing_benefits
+        widget: list
+        default: []
+        collapsed: false
+        hint: Pour expérimenter avec ss
+        fields:
+          - label: Nom
+            name: name
+            widget: string
+          - label: Identifiant
+            name: id
+            hint: |
+              Par exemple : aide_logement, eure_et_loir_fonds_solidarite_logement_aide_maintien_eligibilite (seules les minuscules et _ sont autorisés)
+            pattern:
+              - "^[a-z_]+$"
+              - Les identifiants doivent avoir une forme simple (seules les minuscules et _ sont autorisés)
+            widget: string
+          - label: Courte description
+            name: description
+            widget: text
+            pattern: [".{,120}", 'La description est trop longue. En cas de blocage, contactez nous à equipe@mes-aides.org']
+          - label: Conditions non prises ne comptent par le simulateurs
+            hint: Certains critères d'éligibilité ne peuvent pas être demandés ni pris en compte dans le cadre d'un simulateur grand public. Cette liste permet d'informer les usagers sur ces critères supplémentaires.
+            name: conditions
+            widget: list
+            field:
+              label: Texte
+              name: text
+              widget: string
+          - label: Lien vers la page d'informations de référence
+            hint: Vers un site institutionnel de préférence.
+            name: link
+            widget: string
+          - label: Lien vers un formulaire à imprimer
+            name: form
+            widget: string
+          - label: Lien vers un téléservice
+            hint: Lorsqu'il y a la possibilité de faire la démarche en ligne.
+            name: teleservice
+            widget: string
+          - label: Préfix
+            hint: |
+              Pour permet la formation de phrase grammaticalement correcte.
+              Il s'agit d'indiquer le texte à insérer à la place de PPPP dans la phrase suivante dans laquelle AAAA correspondant au nom de l'aide :
+              Comment obtenir PPPP AAAA ? Par exemples dans « Comment obtenir l'aide exceptionnelle ? » « l' » est le préfix. Pour « Comment obtenir les aides au logement ? » le préfix est « les ».
+            name: prefix
+            widget: string
+          - label: Type du résultat
+            name: type
+            default: "bool"
+            widget: hidden
+            options:
+              - label: Nombre
+                value: float
+              - label: Oui / Non
+                value: "bool"
+          - label: Niveau de fiabilité lorsque le résultat est un nombre d'euros
+            name: floorAt
+            widget: hidden # select
+            default: 10
+            options:
+              - label: 10 (pour arrondir à la dizaine inférieure)
+                value: 10
+              - label: 1 (pour l'euro inférieur)
+                value: 1
+              - label: 0.01 (pour éviter l'arrondi)
+                value: 0.01
+          - label: Entité de rattachement de la variable dans OpenFisca
+            name: entity
+            widget: hidden
+            default: famille
+  # - name: aides
+  #   label: Aides
+  #   label_singular: Aide
+  #   folder: "data/aides"
+  #   create: true
+  #   editor:
+  #     preview: false
+  #   slug: "{{id}}"
+  #   format: yml
+  #   fields:

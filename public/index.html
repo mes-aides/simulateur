@@ -45,7 +45,11 @@
     <meta name="application-name" content="Mes Aides">
     <meta name="msapplication-config" content="<%= BASE_URL %>img/favicon/browserconfig.xml?v=2017-03-01">
     <meta name="theme-color" content="#ffffff">
-
+    <script type="text/javascript">
+        if (window.location.hash.match(/access_token/)) {
+            window.location.href = "<%= BASE_URL %>admin/" + window.location.hash
+        }
+    </script>
   </head>
   <body>
     <noscript>
