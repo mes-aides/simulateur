@@ -2,5 +2,5 @@ name: Institution de test
 imgSrc: img/robot.png
 testing_benefits:
   - name: Aide de robot
-    geographic_sector: "55"
+    geographic_sector: 55azdazdaz
     link: https://contribuer.mes-aides.org
