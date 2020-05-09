@@ -1,0 +1,6 @@
+name: Institution de test
+imgSrc: img/robot.png
+testing_benefits:
+  - name: Aide de robot
+    geographic_sector: "55"
+    link: https://contribuer.mes-aides.org
