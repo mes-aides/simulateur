@@ -1,5 +1,3 @@
 name: demo
 imgSrc: img/logo_brest_metropole.png
-testing_benefits:
-  - name: aide de ouffe
-    link: https://mes-aides.org/
+testing_benefits: []
