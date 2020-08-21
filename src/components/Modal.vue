@@ -2,7 +2,6 @@
   <span>
     <component v-bind:is="tag || 'a'"
       v-on:click="show"
-      v-analytics="{ action: 'Affiché', category:analyticsCategory}"
     ><slot name="message"></slot></component>
     <div v-if="displayed" class="modal__backdrop"
       v-on:click.self.prevent="hide">
@@ -10,7 +9,6 @@
         <slot></slot>
         <div class="form__group button__group">
           <a class="button"
-            v-analytics="{ action: 'Fermé bouton', category:analyticsCategory}"
             v-on:click="hide">
             Fermer
           </a>

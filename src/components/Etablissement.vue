@@ -34,7 +34,6 @@
               v-bind:href="etablissement.url"
               target="_blank"
               rel="noopener"
-              v-analytics="{ name:etablissement.id, action:'Site internet', category:'Partenaire'}"
             >
               Site internet
             </a>
@@ -45,7 +44,6 @@
               v-bind:href="`tel:${ etablissement.telephone }`"
               target="_blank"
               rel="noopener"
-              v-analytics="{ name:etablissement.id, action:'Téléphone', category:'Partenaire'}"
             >
               {{ etablissement.telephone }}
             </a>

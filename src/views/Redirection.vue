@@ -5,7 +5,6 @@
       <div v-if="error">
         <h1>Oups, une erreur est apparue</h1>
         <p><a
-            v-analytics="{ action:'Support', category:'Redirection'}"
             v-mail="{to: 'equipe@mes-aides.org', subject:`[${situationId}] Problème redirection`, body:`Bonjour,
 
         ————
