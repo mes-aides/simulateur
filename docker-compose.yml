@@ -10,12 +10,12 @@ services:
     volumes:
       - './db:/data/db'
 
-  openfisca:
-    build:
-      dockerfile: './docker/openfisca/Dockerfile'
-      context: '.'
-    environment:
-      OPENFISCA_BIND_HOST: 0.0.0.0:2000
+  # openfisca:
+  #   build:
+  #     dockerfile: './docker/openfisca/Dockerfile'
+  #     context: '.'
+  #   environment:
+  #     OPENFISCA_BIND_HOST: 0.0.0.0:2000
 
   node:
     build:
@@ -23,20 +23,20 @@ services:
       context: '.'
     environment:
       MONGODB_URL: mongodb://mongo:27017/dds
-      OPENFISCA_URL: http://openfisca:2000
+      OPENFISCA_URL: https://fr.openfisca.org/api/latest/
       PUPPETEER_ARGS: '{"executablePath":"/usr/bin/chromium-browser","args":["--no-sandbox","--disable-setuid-sandbox","--disable-dev-shm-usage"]}'
       MAILJET_PUBLIC_KEY: ${MAILJET_PUBLIC_KEY}
       MAILJET_PRIVATE_KEY: ${MAILJET_PRIVATE_KEY}
     ports:
       - '35729:35729'
-      - '8080:8080'
+      # - '8080:8080'
       - '9001:9001'
     depends_on:
       - mongo
-      - openfisca
+      # - openfisca
     links:
       - mongo
-      - openfisca
+      # - openfisca
     volumes:
       - 'node_modules:/srv/app/node_modules'
       - './:/srv/app'
