@@ -1,15 +1,15 @@
+import axios from 'axios'
+import _ from 'lodash'
+import moment from 'moment'
 import Vue from 'vue'
 import Vuex from 'vuex'
-
-Vue.use(Vuex)
-
-import axios from 'axios'
-import moment from 'moment'
-import _ from 'lodash'
-
 import { computeAides, datesGenerator } from '../backend/lib/mes-aides'
 import { categoriesRnc, patrimoineTypes } from './constants/resources'
 import Institution from './lib/Institution'
+
+Vue.use(Vuex)
+
+
 
 let DATE_FIELDS = ['date_naissance', 'date_arret_de_travail', 'date_debut_chomage']
 
@@ -281,17 +281,17 @@ const store = new Vuex.Store({
       commit('saveMenage', menage)
       commit('setDirty')
     },
-    save: function(state) {
-      let situation = _.omit(state.state.situation, '_id')
-      if (state.state.situation._id) {
-          situation.modifiedFrom = state.state.situation._id
-      }
+    // save: function(state) {
+    //   let situation = _.omit(state.state.situation, '_id')
+    //   if (state.state.situation._id) {
+    //       situation.modifiedFrom = state.state.situation._id
+    //   }
 
-      return axios.post('/api/situations/', situation)
-        .then(result => result.data)
-        .then(payload => payload._id)
-        .then(id => state.commit('setId', id))
-    },
+    //   return axios.post('/api/situations/', situation)
+    //     .then(result => result.data)
+    //     .then(payload => payload._id)
+    //     .then(id => state.commit('setId', id))
+    // },
     fetch: function(state, id) {
       state.commit('fetching')
       return axios.get(`/api/situations/${id}`)
@@ -301,7 +301,9 @@ const store = new Vuex.Store({
     },
     compute: function(state, showPrivate) {
       state.commit('startComputation')
-      return axios.get('api/situations/' + state.state.situation._id + '/openfisca-response')
+      let situation = _.omit(state.state.situation, '_id')
+
+      return axios.post('https://fr.openfisca.org/api/latest/calculate', situation, {headers: {'Content-Type': 'Application/json'}})
         .then(function(OpenfiscaResponse) {
           return OpenfiscaResponse.data
         }).then(function(openfiscaResponse) {
@@ -333,7 +335,7 @@ const store = new Vuex.Store({
       next('/foyer/demandeur')
     },
     verifyBenefitVariables: function(state) {
-      return axios.get('api/openfisca/variables')
+      return axios.get('https://fr.openfisca.org/api/latest/variables')
         .then(response => response.data)
         .then(variableNames => {
           let warnUser = false
