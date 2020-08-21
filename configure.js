@@ -4,18 +4,11 @@ var bodyParser = require('body-parser');
 var morgan = require('morgan');
 var ludwigConfig = require('./ludwig/ui-config');
 var utils = require('./backend/lib/utils');
-var Sentry = require('@sentry/node');
 
 
 module.exports = function(app) {
-  Sentry.init({
-      // Enable Sentry in production
-      // https://docs.sentry.io/development/sdk-dev/overview/#usage-for-end-users
-      dsn: process.env.NODE_ENV === 'production' ? 'https://fde1d4c9741e4ef3a3416e4e88b61392@sentry.data.gouv.fr/17' : null,
-  });
 
   // The request handler must be the first middleware on the app
-  app.use(Sentry.Handlers.requestHandler());
 
   // Setup app
   app.use('/api', require('./backend/api'));
@@ -62,8 +55,6 @@ module.exports = function(app) {
       utils.convertHTMLToPDF(html, callback, pdfOptions, puppeteerArgs, false);
   });
 
-  // The error handler must be before any other error middleware and after all controllers
-  app.use(Sentry.Handlers.errorHandler());
 
   if (app.get('env') == 'development') {
       app.use(morgan('dev'));
