@@ -298,13 +298,13 @@ export default {
       return this.$store.dispatch('redirection', route => this.$router.push(route))
     } else {
       if (this.$store.state.calculs.dirty) {
-      //   this.$store.dispatch('save')
-      //     .then(() => {
-      //       if (this.$store.state.access.forbidden) {
-      //         return
-      //       }
-      //       return this.$store.dispatch('compute')
-      //     })
+        this.$store.dispatch('save')
+          .then(() => {
+            if (this.$store.state.access.forbidden) {
+              return
+            }
+            return this.$store.dispatch('compute')
+          })
       } else if(! this.$store.getters.hasResults) {
         this.$store.dispatch('compute')
       }
