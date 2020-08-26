@@ -45,6 +45,13 @@ From [Documentation de OpenFisca - api.gouv.fr](https://api.gouv.fr/documentatio
 }
 ```
 
+
+## Debug from command line
+
+~~~bash
+curl -X POST "https://fr.openfisca.org/api/latest/calculate" -H  "accept: application/json" -H  "Content-Type: application/json" -d @doc/openfesca-body.json
+~~~
+
 ## Link
 
 -   [Using the /calculate endpoint — OpenFisca documentation](https://openfisca.org/doc/openfisca-web-api/input-output-data.html)
