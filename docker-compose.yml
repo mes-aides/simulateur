@@ -17,7 +17,14 @@ services:
   #   environment:
   #     OPENFISCA_BIND_HOST: 0.0.0.0:2000
 
-  node:
+  frontend:
+    image: node:8
+    working_dir: /usr/src/app
+    command: bash -c "npm install && npm run build:watch"
+    volumes:
+      - ./:/usr/src/app
+
+  backend:
     image: node:8
     working_dir: /usr/src/app
     command: bash -c "npm install && npm run dev"
