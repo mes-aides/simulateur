@@ -12,7 +12,8 @@ module.exports = {
     apply: function(situation) {
         migrations.forEach(function(migration) {
             if (situation.version < migration.version) {
-                situation.version = migration.version;
+                situation.version = migration.version
+                console.log(`Apply migration ${migration.version}`)
                 situation = migration.function(situation);
             }
         });
