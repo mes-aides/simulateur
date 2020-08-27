@@ -102,7 +102,6 @@ export default {
       this.next()
     },
     next: function() {
-      this.$store.dispatch('verifyBenefitVariables')
       this.$push()
     },
   }

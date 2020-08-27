@@ -9,41 +9,6 @@
         </nav>
 
         <div class="navbar__home">
-            <Modal analyticsCategory="Blocage">
-              <template v-slot:message>Je suis bloqué·e…</template>
-              <h1>Veuillez nous excuser…</h1>
-              <p>Le simulateur Mes Aides est un service en constante évolution.<p>
-              <p>Si vous êtes bloqué·e, c'est que nous avons encore du travail à faire.</p>
-              <p>Aidez-nous en nous indiquant <a
-                v-mail="{to: 'equipe@mes-aides.org', subject:'Bloqué·e sur le simulateur', body:`Bonjour,
-
-En utilisant le simulateur Mes Aides, je me suis retrouvé·e bloqué·e en faisant XXX.
-
-Voici le lien affiché en haut de https://www.whatsmybrowser.org : XXXX.
-
-Vous pouvez me joindre par téléphone au XX XX XX XX XX (de préférence en semaine) pour une dizaine de minutes d'échange afin de comprendre l'origine de mon blocage.
-
-En pièce jointe une capture d'écran pour vous permettre de vous aider à comprendre l'origine du blocage.
-
-Merci et bonne journée,
-
-————
-Page : ${$route.fullPath}
-————`}">par email</a>&nbsp;:
-              </p>
-              <ul>
-                <li><strong>comment</strong> vous vous êtes retrouvé·e bloqué·e&nbsp;;</li>
-                <li>le <strong>lien affiché</strong> en haut de <a target="_blank" rel="noopener" href="https://www.whatsmybrowser.org/">la page suivante</a> qui nous permet d'en savoir plus sur votre ordinateur&nbsp;;</li>
-                <li>une capture d'écran si cela vous paraît pertinent et</li>
-                <li>un <strong>numéro de téléphone</strong> auquel nous pouvons vous joindre pour mieux comprendre l'origine de votre blocage.</li>
-              </ul>
-              <p>Nous essaierons de vous débloquer et d'éviter que d'autres personnes se retrouvent bloquées comme vous.<p>
-
-              <p>
-                Merci,<br/>
-                L'équipe Mes Aides
-              </p>
-            </Modal>
         </div>
       </div>
     </header>
@@ -73,13 +38,9 @@ Page : ${$route.fullPath}
 </template>
 
 <script>
-import Modal from '@/components/Modal'
-
 export default {
   name: 'BaseLayout',
-  components: {
-    Modal
-  }
+  components: { }
 }
 </script>
 
