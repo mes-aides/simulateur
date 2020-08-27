@@ -5,8 +5,6 @@ var path = require('path');
 var rp = require('request-promise');
 var Promise = require('bluebird');
 
-console.log(os.tmpdir());
-
 var fs = Promise.promisifyAll(require('fs'));
 
 var phishingExpressions = require('./../../../app/js/constants/phishingExpressions');

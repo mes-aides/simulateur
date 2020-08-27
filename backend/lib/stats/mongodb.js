@@ -115,7 +115,6 @@ function extractSurveyDetails(db) {
 }
 
 function manageMissingDBOrCollection(error) {
-    console.log(error);
     if ((error.message == 'ns doesn\'t exist') || error.message.match('does not exist')) {
         return {
             dailySituationCount: [],
