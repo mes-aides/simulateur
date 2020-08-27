@@ -64,14 +64,12 @@
           target="_blank"
           rel="noopener"
           href="http://www.msa.fr/lfr/web/msa/espace-prive"
-          v-analytics="{ name:droit.label, action:'msa', category:'General'}"
         >
           Démarches pour les professions agricoles
         </a>
         <router-link
           class="button-outline primary"
           v-if="droit.provider.etablissements && droit.provider.etablissements.length > 0"
-          v-analytics="{ name:droit.label, action:'show-locations', category:'General'}"
           v-bind:to="{ name: 'resultat/lieux', params: { id: droit.id }}">
           <i class="fa fa-home"></i> Trouver une agence
         </router-link>

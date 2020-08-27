@@ -1,24 +1,29 @@
-import axios from 'axios'
-import _ from 'lodash'
+import _ from 'lodash';
 
-function sortByName(aCity, bCity) {
-  if (aCity.nom < bCity.nom)
-    return -1
-  if (aCity.nom > bCity.nom)
-    return 1
+const communes = require('@etalab/decoupage-administratif/data/communes.json');
 
-  return 0
-}
+const index = {};
+communes.forEach(function(commune) {
+    if (!commune.codesPostaux) {
+        return;
+    }
+
+    commune.codesPostaux.forEach(function(codePostal) {
+        if (!(codePostal in index)) {
+            index[codePostal] = [];
+        }
+
+        index[codePostal].push(commune);
+    });
+});
+
 
 const Commune = {
+  /**
+   * @param {string} postalCode
+   */
   get: function(postalCode) {
-    const uri = `/api/outils/communes/${postalCode}`
-      return axios.get(uri)
-        .then((result) => {
-          return result.data.sort(sortByName)
-        }).catch(() => {
-          return []
-        })
+    return index[postalCode] || [];
   },
   getMostPopulated: function(communes) {
     return _.maxBy(communes, 'population') || (communes && communes.length && communes[0]) || {};

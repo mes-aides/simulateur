@@ -16,7 +16,6 @@
     <div id="error" class="alert alert-danger" v-if="hasError"  role="alert">
       <h2><i class="fa fa-warning" aria-hidden="true"></i> Une erreur est survenue.</h2>
       <p><a
-        v-analytics="{ action:'Support', category:'Contact'}"
         v-mail="{to: 'equipe@mes-aides.org', subject:`[${resultatsId}] Problème technique`, body:`Bonjour,
 
     J'ai tenté de XXX,
@@ -80,7 +79,6 @@
           <h4>Nous améliorons ce simulateur en continu, et
             <a
               href
-              v-analytics="{ action:'Go', category:'Contact'}"
               v-on:click.prevent="goToFeedback($event)">
               vous pouvez nous y aider</a>&nbsp;!</h4>
         </div>
@@ -111,7 +109,6 @@
             <p>
               <span v-html="droit.description" itemprop="description"></span>
                <BenefitCtaLink
-                v-bind:analytics-name="droit.label"
                 v-bind:link="droit.link"
                 v-bind:benefit="droit"
                 type="link"
@@ -129,10 +126,8 @@
           <p>La plupart des résultats que nous vous proposons sont automatiquement arrondis à une dizaine d'euros près.</p>
           <ul>
             <li><a
-              v-analytics="{ name: 'Suggestion', action:'Support', category:'General'}"
               v-mail="{to: 'equipe@mes-aides.org', subject:`[${ resultatsId }] Suggestion`}">Vous avez une suggestion d'amélioration</a>.</li>
             <li><a
-              v-analytics="{ name: 'Écart simulation', action:'Support', category:'General'}"
               v-mail="{to: 'equipe@mes-aides.org', subject:`[${ resultatsId }] Montants inattendus`, body:`Bonjour,
 
     En effectuant une simulation sur mes-aides.org, j'ai obtenu le résultat suivant :
@@ -151,7 +146,6 @@
     ID : ${ resultatsId } (à conserver impérativement pour traitement de votre demande)
     ————`}">Ces résultats ne correspondent pas à ceux d'un autre simulateur</a>.</li>
             <li><a
-              v-analytics="{ name: 'Écart instruction', action:'Support', category:'General'}"
               v-mail="{to: 'equipe@mes-aides.org', subject:`[${resultatsId}] Montants inattendus`, body:`Bonjour,
 
     En effectuant une simulation sur mes-aides.org, j'ai obtenu le résultat suivant :
@@ -183,13 +177,11 @@
                 v-if="openfiscaTracerURL"
                 target="_blank"
                 v-bind:href="openfiscaTracerURL"
-                v-analytics="{ category:'Tracer' }"
                 >Accédez à l'outil d'analyse des résultats de cette simulation</a></li>
               <li><a
                 v-if="openfiscaAxeURL"
                 target="_blank"
                 v-bind:href="openfiscaAxeURL"
-                v-analytics="{ category:'Axe' }"
                 >Analysez l'évolution des aides en fonction des ressources
               </a></li>
             </ul>

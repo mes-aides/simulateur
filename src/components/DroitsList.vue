@@ -5,7 +5,6 @@
         v-on:click="scrollTo($event, droit)"
         class="droits-list-item"
         itemscope itemtype="http://schema.org/GovernmentService"
-        v-analytics="{ name:droit.label, action:'click', category:'General'}"
         v-bind:key="index"
         >
         <div class="droits-list-item-cell">
@@ -33,7 +32,6 @@
         target="_blank"
         rel="noopener"
         itemscope itemtype="http://schema.org/GovernmentService"
-        v-analytics="{ name:droit.label, action:'link-ineligible', category:'General'}"
         v-bind:key="index"
         >
         <div class="droits-list-item-cell">

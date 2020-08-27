@@ -18,13 +18,11 @@
             </router-link>
             <a v-bind:class="`button ${ctaSize} primary`"
               v-on:click="newSituation()"
-              v-analytics="{ action: ctaLabel, category:'Home'}"
             >
               {{ctaLabel}}
             </a>
             <a v-bind:class="`button ${ctaSize} secondary`"
               v-on:click="next()"
-              v-analytics="{ action: 'Reprendre ma simulation', category:'Home'}"
               v-if="hasExistingSituation"
             >
               Reprendre la simulation

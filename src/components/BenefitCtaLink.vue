@@ -2,12 +2,11 @@
     <a v-bind:href="getURL(link)"
     target="_blank"
     rel="noopener"
-    class="text-center" 
+    class="text-center"
     v-bind:class="{
       'button secondary': level === 'default',
       'button primary': level === 'success' }"
     v-on:click="onClick(link)"
-    v-analytics="{ name:analyticsName, action:type, category:'General'}"
     v-bind:aria-label="longLabel"
     v-html="label">
   </a>

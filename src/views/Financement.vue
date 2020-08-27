@@ -6,7 +6,6 @@
 
     <p>Si vous souhaitez contribuer au financement du service ou bien si vous avez une idée pour le pérenniser
         <a
-            v-analytics="{ action:'Financement', category:'Contact'}"
             v-mail="{to: 'equipe@mes-aides.org', subject:'Financement', body:''}">contactez-nous</a>.
     </p>
   </div>

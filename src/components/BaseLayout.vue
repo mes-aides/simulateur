@@ -15,7 +15,6 @@
               <p>Le simulateur Mes Aides est un service en constante évolution.<p>
               <p>Si vous êtes bloqué·e, c'est que nous avons encore du travail à faire.</p>
               <p>Aidez-nous en nous indiquant <a
-                v-analytics="{ action: 'Envoi d\'email', category:'Blocage'}"
                 v-mail="{to: 'equipe@mes-aides.org', subject:'Bloqué·e sur le simulateur', body:`Bonjour,
 
 En utilisant le simulateur Mes Aides, je me suis retrouvé·e bloqué·e en faisant XXX.
@@ -24,7 +23,7 @@ Voici le lien affiché en haut de https://www.whatsmybrowser.org : XXXX.
 
 Vous pouvez me joindre par téléphone au XX XX XX XX XX (de préférence en semaine) pour une dizaine de minutes d'échange afin de comprendre l'origine de mon blocage.
 
-En pièce jointe une capture d'écran pour vous permettre de vous aider à comprendre l'origine du blocage. 
+En pièce jointe une capture d'écran pour vous permettre de vous aider à comprendre l'origine du blocage.
 
 Merci et bonne journée,
 

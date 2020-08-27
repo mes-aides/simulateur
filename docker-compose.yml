@@ -1,4 +1,4 @@
-version: '3'
+version: '3.3'
 
 services:
 
@@ -10,50 +10,32 @@ services:
     volumes:
       - './db:/data/db'
 
-  openfisca:
-    build:
-      dockerfile: './docker/openfisca/Dockerfile'
-      context: '.'
-    environment:
-      OPENFISCA_BIND_HOST: 0.0.0.0:2000
+  frontend:
+    image: node:10.19
+    working_dir: /usr/src/app
+    command: bash -c "npm install && npm run build:watch"
+    depends_on:
+      - backend
+    volumes:
+      - ./:/usr/src/app
 
-  node:
-    build:
-      dockerfile: './docker/node/Dockerfile'
-      context: '.'
+  backend:
+    image: node:10.19
+    working_dir: /usr/src/app
+    command: bash -c "npm install && npm run dev"
+    restart: always
     environment:
       MONGODB_URL: mongodb://mongo:27017/dds
-      OPENFISCA_URL: http://openfisca:2000
-      PUPPETEER_ARGS: '{"executablePath":"/usr/bin/chromium-browser","args":["--no-sandbox","--disable-setuid-sandbox","--disable-dev-shm-usage"]}'
-      MAILJET_PUBLIC_KEY: ${MAILJET_PUBLIC_KEY}
-      MAILJET_PRIVATE_KEY: ${MAILJET_PRIVATE_KEY}
+      OPENFISCA_URL: https://fr.openfisca.org/api/latest/
     ports:
-      - '35729:35729'
       - '8080:8080'
       - '9001:9001'
     depends_on:
       - mongo
-      - openfisca
     links:
       - mongo
-      - openfisca
     volumes:
-      - 'node_modules:/srv/app/node_modules'
-      - './:/srv/app'
-
-  nginx:
-    image: 'nginx:1.14-alpine'
-    depends_on:
-      - node
-    links:
-      - node
-    ports:
-      - '2000:2000'
-      - '8080:8080'
-    volumes:
-      - './docker/nginx/conf.d:/etc/nginx/conf.d:ro'
-      - './docker/nginx/snippets:/etc/nginx/snippets:ro'
-      - './:/home/main/mes-aides-ui:ro'
+      - ./:/usr/src/app
 
 volumes:
   node_modules:

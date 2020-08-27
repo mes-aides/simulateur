@@ -31,20 +31,20 @@ exports.show = function(req, res) {
     res.send(req.situation);
 };
 
-function clearCookies(req, res) {
-    var limit = 10;
+// function clearCookies(req, res) {
+//     var limit = 10;
 
-    var keys = Object.keys(req.cookies);
-    var situationCookies = _.filter(keys, function(k) { return k.startsWith(Situation.cookiePrefix); });
-    situationCookies.sort();
+//     var keys = Object.keys(req.cookies);
+//     var situationCookies = _.filter(keys, function(k) { return k.startsWith(Situation.cookiePrefix); });
+//     situationCookies.sort();
 
-    if (situationCookies.length-limit>=0) {
-        var cookieToClear = situationCookies.slice(0, situationCookies.length-limit);
-        cookieToClear.forEach(function(name) {
-            res.clearCookie(name, { httpOnly: true });
-        });
-    }
-}
+//     if (situationCookies.length-limit>=0) {
+//         var cookieToClear = situationCookies.slice(0, situationCookies.length-limit);
+//         cookieToClear.forEach(function(name) {
+//             res.clearCookie(name, { httpOnly: true });
+//         });
+//     }
+// }
 
 exports.create = function(req, res, next) {
     if (req.body._id) return res.status(403).send({ error: 'You can‘t provide _id when saving a situation. _id will be generated automatically.' });
@@ -52,7 +52,7 @@ exports.create = function(req, res, next) {
     return Situation.create(_.omit(req.body, 'createdAt', 'status', 'token'), function(err, persistedSituation) {
         if (err) return next(err);
 
-        clearCookies(req, res);
+        // clearCookies(req, res);
         req.situation = persistedSituation;
         exports.attachAccessCookie(req, res);
         res.send(persistedSituation);

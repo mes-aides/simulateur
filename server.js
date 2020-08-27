@@ -16,7 +16,6 @@ app.route('/*').get(function(req, res) {
 });
 
 app.use(function (err, req, res, next) {
-    console.error(err);
     res.status(parseInt(err.code) || 500).send(err);
     next();
 });

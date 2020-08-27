@@ -179,18 +179,7 @@ export default {
         if (! this.menage.code_postal || this.menage.code_postal.length !== 5) {
             return []
         }
-
-        this.retrievingCommunes = true
         return Commune.get(this.menage.code_postal)
-          .then((communes) => {
-            return communes
-          })
-          .catch(() => {
-            return []
-          })
-          .finally(() => {
-            this.retrievingCommunes = false
-          })
       },
       default: []
     },

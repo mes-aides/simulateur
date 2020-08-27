@@ -22,6 +22,7 @@ module.exports = {
       }));
   },
   devServer: {
+    writeToDisk: true,
     before: before
   }
 }
