@@ -11,14 +11,16 @@ services:
       - './db:/data/db'
 
   frontend:
-    image: node:8
+    image: node:10.19
     working_dir: /usr/src/app
     command: bash -c "npm install && npm run build:watch"
+    depends_on:
+      - backend
     volumes:
       - ./:/usr/src/app
 
   backend:
-    image: node:8
+    image: node:10.19
     working_dir: /usr/src/app
     command: bash -c "npm install && npm run dev"
     restart: always
@@ -34,3 +36,6 @@ services:
       - mongo
     volumes:
       - ./:/usr/src/app
+
+volumes:
+  node_modules:
