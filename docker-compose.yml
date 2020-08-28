@@ -11,7 +11,7 @@ services:
       - './db:/data/db'
 
   frontend:
-    image: node:10.19
+    image: node:14.8
     working_dir: /usr/src/app
     command: bash -c "npm install && npm run build:watch"
     depends_on:
@@ -20,13 +20,13 @@ services:
       - ./:/usr/src/app
 
   backend:
-    image: node:10.19
+    image: node:14.8
     working_dir: /usr/src/app
     command: bash -c "npm install && npm run dev"
     restart: always
     environment:
       MONGODB_URL: mongodb://mongo:27017/dds
-      OPENFISCA_URL: https://fr.openfisca.org/api/latest/
+      OPENFISCA_URL: https://openfisca.mes-aides.org/
     ports:
       - '8080:8080'
       - '9001:9001'

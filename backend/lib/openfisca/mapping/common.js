@@ -59,18 +59,17 @@ exports.getPeriods = function (dateDeValeur) {
     };
 };
 
-// TODO: remove this because it inject unwanted properties
 let requestedVariables = {}
-// forEach((aide, aideId) => {
-//     requestedVariables[aideId] = _.assign({}, aide)
-//     if (aide.uncomputability)
-//         requestedVariables[aideId + '_non_calculable'] = _.assign({}, aide, { type: 'string' })
+forEach((aide, aideId) => {
+    requestedVariables[aideId] = _.assign({}, aide)
+    if (aide.uncomputability)
+        requestedVariables[aideId + '_non_calculable'] = _.assign({}, aide, { type: 'string' })
 
-//     if (aide.extra) {
-//         aide.extra.forEach(function(extra) {
-//             requestedVariables[extra.id] = _.assign({}, extra)
-//         })
-//     }
-// })
+    if (aide.extra) {
+        aide.extra.forEach(function(extra) {
+            requestedVariables[extra.id] = _.assign({}, extra)
+        })
+    }
+})
 
 exports.requestedVariables = requestedVariables

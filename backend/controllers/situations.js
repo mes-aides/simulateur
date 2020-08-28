@@ -1,7 +1,9 @@
-var _ = require('lodash');
-var openfisca = require('../lib/openfisca');
-var openfiscaTest = require('../lib/openfisca/test');
-var Situation = require('mongoose').model('Situation');
+const _ = require('lodash');
+const openfisca = require('../lib/openfisca');
+const openfiscaTest = require('../lib/openfisca/test');
+const Situation = require('mongoose').model('Situation');
+const Simulation = require('mongoose').model('Simulation');
+const {agenda, SIMULATION_TASK} = require('../config/worker')
 
 exports.situation = function(req, res, next, situationId) {
     if (situationId && situationId._id) {
@@ -59,12 +61,33 @@ exports.create = function(req, res, next) {
     });
 };
 
+
+function createSimulationJobs(situation) {
+    const STEP = 100
+    const { salaire_net } = situation.demandeur
+    const salaire = Math.max(...Object.values(salaire_net))
+
+    // create job for 2x upper salaries
+    for (let i = salaire; i < salaire * 2; i += STEP) {
+        agenda.now(SIMULATION_TASK, {salaireOffset: i, situation})
+    }
+
+    // create job for 2x lower salaries
+    for (let i = salaire * 0.5; i < salaire; i += STEP) {
+        agenda.now(SIMULATION_TASK, {salaireOffset: i, situation})
+    }
+}
+
 exports.openfiscaResponse = function(req, res, next) {
-    console.log(JSON.stringify(req.situation))
-    return openfisca.calculate(req.situation, function(err, result) {
+    createSimulationJobs(req.situation)
+
+    return openfisca.calculate(req.situation, function(err, simulation) {
         if (err) return next(Object.assign(err, { _id: req.situation._id }));
 
-        res.send(Object.assign(result, { _id: req.situation._id }));
+        simulation.situation = req.situation
+        Simulation.create(simulation)
+
+        res.send(Object.assign(simulation, { _id: req.situation._id }));
     });
 };
 

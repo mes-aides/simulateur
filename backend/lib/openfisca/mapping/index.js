@@ -153,10 +153,8 @@ exports.buildOpenFiscaRequest = function(sourceSituation) {
     propertyMove.movePropertyValuesToGroupEntity(testCase);
 
 
-    console.log(JSON.stringify(testCase).includes('complement_aide_retour_emploi'))
     var periods = common.getPeriods(situation.dateDeValeur);
     setNonInjectedPrestations(testCase, _.difference(periods.last12Months, periods.last3Months), 0);
-    console.log(JSON.stringify(testCase).includes('complement_aide_retour_emploi'))
     last3MonthsDuplication(testCase, situation.dateDeValeur);
     giveValueToRequestedVariables(testCase, periods.thisMonth, null);
 
