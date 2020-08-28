@@ -60,6 +60,7 @@ exports.create = function(req, res, next) {
 };
 
 exports.openfiscaResponse = function(req, res, next) {
+    console.log(JSON.stringify(req.situation))
     return openfisca.calculate(req.situation, function(err, result) {
         if (err) return next(Object.assign(err, { _id: req.situation._id }));
 

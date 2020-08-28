@@ -19,6 +19,7 @@ function sendToOpenfisca(endpoint, transform) {
                 stack: e.stack
             });
         }
+        console.log(JSON.stringify(request))
         rp({
             uri: config.openfiscaURL + '/' + endpoint,
             method: 'POST',

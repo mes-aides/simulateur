@@ -123,6 +123,8 @@ exports.buildOpenFiscaRequest = function(sourceSituation) {
     delete situation.menage.nom_commune;
     delete situation.menage.code_postal;
 
+    const currentYear = new Date().getFullYear()
+    const lastYear = currentYear -1
 
     var testCase = {
         individus: individus,
@@ -133,7 +135,18 @@ exports.buildOpenFiscaRequest = function(sourceSituation) {
             _: situation.foyer_fiscal
         },
         menages: {
-            _: situation.menage
+            _: {
+                ...situation.menage,
+
+                revenu_disponible: {
+                    [currentYear]: null,
+                    [lastYear]: null,
+                },
+                impots_directs: {
+                    [currentYear]: null,
+                    [lastYear]: null,
+                }
+            }
         },
     };
 
