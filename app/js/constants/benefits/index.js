@@ -288,21 +288,21 @@ var droitsDescription = {
                     floorAt: 10,
                     prefix: 'l’',
                 },
-                'agepi': {
-                    'label': 'AGEPI',
-                    'description': 'Description',
-                    'link': 'https://www.service-public.fr/particuliers/vosdroits/F1814',
-                    floorAt: 1,
-                    prefix: 'l’',
-                },
-                'complement_aide_retour_emploi': {
-                    'label': 'complément aide au retour à l’emploi',
-                    'description': 'Description',
-                    'link': 'https://www.service-public.fr/particuliers/vosdroits/F14860',
-                    'entity': 'individu', // default entity is famille
-                    floorAt: 1,
-                    prefix: 'le',
-                }
+                // 'agepi': {
+                //     'label': 'AGEPI',
+                //     'description': 'Description',
+                //     'link': 'https://www.service-public.fr/particuliers/vosdroits/F1814',
+                //     floorAt: 1,
+                //     prefix: 'l’',
+                // },
+                // 'complement_aide_retour_emploi': {
+                //     'label': 'complément aide au retour à l’emploi',
+                //     'description': 'Description',
+                //     'link': 'https://www.service-public.fr/particuliers/vosdroits/F14860',
+                //     'entity': 'individu', // default entity is famille
+                //     floorAt: 1,
+                //     prefix: 'le',
+                // }
             },
         },
         'cheque_energie': {
@@ -449,28 +449,28 @@ var droitsDescription = {
             'label': 'L’État Français',
             'imgSrc': 'logo_etat_francais.png',
             'prestations': {
-                'covid_aide_exceptionnelle_tpe_montant': {
-                    'label': 'aide financière COVID-19 pour les petites entreprises',
-                    legend: '',
-                    'description': 'Cette aide est à destination des plus petites entreprises, des indépendants et des microentreprises des secteurs les plus touchés pendant l’épisode de crise sanitaire dûe au COVID-19.',
-                    'conditions': [
-                        'Subir une fermeture administrative ou bien',
-                        'Subir une perte de chiffre d’affaires de plus de 70% au mois de mars 2020 par rapport au mois de mars 2019',
-                    ],
-                    'link': 'https://www.economie.gouv.fr/coronavirus-soutien-entreprises',
-                    prefix: 'l’',
-                    entity: 'individu',
-                },
-                'covid_aide_exceptionnelle_famille_montant': {
-                    'label': 'aide financière COVID-19 pour les familles',
-                    legend: 'le 15 mai prochain',
-                    'conditions': [
-                        'Percevoir le revenu de solidarité active (RSA) ou l’allocation de solidarité spécifique (ASS) ou',
-                        'Percevoir des aides au logement de la CAF et avoir des enfants dans son foyer',
-                    ],
-                    'description': 'Cette aide est à destination des familles en difficulté pendant l’épisode de crise sanitaire dûe au COVID-19. Aucune action n’est nécessaire de votre part. Si vous y êtes éligible, cette aide vous sera <strong>versée automatiquement</strong> le 15 mai 2020 en  complément de vos autres prestations.',
-                    prefix: 'l’',
-                },
+                // 'covid_aide_exceptionnelle_tpe_montant': {
+                //     'label': 'aide financière COVID-19 pour les petites entreprises',
+                //     legend: '',
+                //     'description': 'Cette aide est à destination des plus petites entreprises, des indépendants et des microentreprises des secteurs les plus touchés pendant l’épisode de crise sanitaire dûe au COVID-19.',
+                //     'conditions': [
+                //         'Subir une fermeture administrative ou bien',
+                //         'Subir une perte de chiffre d’affaires de plus de 70% au mois de mars 2020 par rapport au mois de mars 2019',
+                //     ],
+                //     'link': 'https://www.economie.gouv.fr/coronavirus-soutien-entreprises',
+                //     prefix: 'l’',
+                //     entity: 'individu',
+                // },
+                // 'covid_aide_exceptionnelle_famille_montant': {
+                //     'label': 'aide financière COVID-19 pour les familles',
+                //     legend: 'le 15 mai prochain',
+                //     'conditions': [
+                //         'Percevoir le revenu de solidarité active (RSA) ou l’allocation de solidarité spécifique (ASS) ou',
+                //         'Percevoir des aides au logement de la CAF et avoir des enfants dans son foyer',
+                //     ],
+                //     'description': 'Cette aide est à destination des familles en difficulté pendant l’épisode de crise sanitaire dûe au COVID-19. Aucune action n’est nécessaire de votre part. Si vous y êtes éligible, cette aide vous sera <strong>versée automatiquement</strong> le 15 mai 2020 en  complément de vos autres prestations.',
+                //     prefix: 'l’',
+                // },
             }
         },
     },
