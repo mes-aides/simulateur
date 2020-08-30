@@ -72,8 +72,8 @@ function next(current, situation) {
         case '/foyer/extra-pole-emploi':
         case '/foyer/ressources/fiscales':
         case '/foyer/ressources/patrimoine':
-        case '/foyer/resultat':
-            return '/foyer/resultat'
+        case '/foyer/graphique':
+            return '/foyer/graphique'
         case '/foyer/ressources/enfants':
         {
             let enfants = situation.enfants
@@ -89,7 +89,7 @@ function next(current, situation) {
               return accum
             }, { next: undefined })
             return next || '/foyer/pensions-alimentaires'
-        } 
+        }
         default:
             switch (current.name) {
                 case 'enfants/modifier':

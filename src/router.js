@@ -101,6 +101,13 @@ const router = new Router({
           title: 'Question Estime Pôle Emploi'
         }
       }, {
+        name: 'graphique',
+        path: 'graphique',
+        component: () => import(/* webpackChunkName: "graohique" */ './views/Foyer/Graphique.vue'),
+        meta: {
+          title: 'Graphique de votre situation'
+        },
+      }, {
         name: 'resultat',
         path: 'resultat',
         component: () => import(/* webpackChunkName: "resultat" */ './views/Foyer/Resultat.vue'),

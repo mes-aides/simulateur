@@ -6,7 +6,7 @@
 
     <router-link class="button text-center" to="/foyer/ressources/fiscales">Déclarez vos ressources {{ $store.state.dates.fiscalYear.label }}</router-link>
 
-    <router-link class="button-outline text-center primary" to="/foyer/resultat">Retourner aux résultats</router-link>
+    <router-link class="button-outline text-center primary" to="/foyer/graphique">Retourner aux résultats</router-link>
   </div>
 </template>
 

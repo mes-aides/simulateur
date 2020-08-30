@@ -299,6 +299,10 @@ const store = new Vuex.Store({
         .then(payload => state.commit('reset', payload))
         .catch(() => state.commit('saveAccessFailure'))
     },
+    fetchGraphique(state) {
+      return axios.get(`api/situations/${state.state.situation._id}/get-simulations-data`)
+        .then(response => console.log(response))
+    },
     compute: function(state, showPrivate) {
       state.commit('startComputation')
       return axios.get('api/situations/' + state.state.situation._id + '/openfisca-response')

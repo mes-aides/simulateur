@@ -6,6 +6,7 @@ var benefits = require('../../app/js/constants/benefits/back');
 var mesAides = require('../lib/mes-aides');
 var openfisca = require('../lib/openfisca');
 var utils = require('../lib/utils');
+const {agenda, SIMULATION_TASK} = require('../config/worker')
 var computeAides = mesAides.computeAides.bind(benefits);
 
 var familleDef = {
@@ -114,7 +115,7 @@ SituationSchema.virtual('cookieName').get(function() {
     return `${SituationSchema.statics.cookiePrefix}${this._id}`;
 });
 SituationSchema.virtual('returnPath').get(function() {
-    return '/foyer/resultat?situationId=' + this._id;
+    return '/foyer/graphique?situationId=' + this._id;
 });
 
 SituationSchema.methods.isAccessible = function(keychain) {
@@ -139,6 +140,22 @@ SituationSchema.methods.compute = function() {
     });
 };
 
+function createSimulationJobs(situation) {
+    const STEP = 100
+    const { salaire_net } = situation.demandeur
+    const salaire = Math.max(...Object.values(salaire_net))
+
+    // create job for 2x upper salaries
+    for (let i = salaire; i < salaire * 2; i += STEP) {
+        agenda.now(SIMULATION_TASK, {salaireOffset: i, situation})
+    }
+
+    // create job for 2x lower salaries
+    for (let i = salaire * 0.5; i < salaire; i += STEP) {
+        agenda.now(SIMULATION_TASK, {salaireOffset: i, situation})
+    }
+}
+
 SituationSchema.pre('save', function(next) {
     if (!this.isNew) { return next(); }
     var situation = this;
@@ -148,6 +165,8 @@ SituationSchema.pre('save', function(next) {
         })
         .then(next)
         .catch(next);
+
+    createSimulationJobs(situation)
 });
 
 mongoose.model('Situation', SituationSchema);

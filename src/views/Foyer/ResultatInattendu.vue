@@ -1,7 +1,7 @@
 <template>
   <form>
     <div>
-      <router-link to="/foyer/resultat/">
+      <router-link to="/foyer/graphique/">
         <h2 aria-label="Retour aux résultats">
           <i class="fa fa-arrow-circle-left" aria-hidden="true"></i> Retour aux résultats
         </h2>
@@ -39,7 +39,7 @@ export default {
     ResultatInattenduYearMinusTwo
   },
   computed: {
-    droit: function() { 
+    droit: function() {
       return benefitKeyed[this.$route.params.id]
     },
     longLabel: function() {

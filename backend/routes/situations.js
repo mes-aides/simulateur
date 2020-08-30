@@ -15,6 +15,7 @@ module.exports = function(api) {
 
     route.get('/', situations.show);
     route.get('/openfisca-response', situations.openfiscaResponse);
+    route.get('/get-simulations-data', situations.getSimulationsData);
     route.get('/legacy-openfisca-request', situations.openfiscaRequestFromLegacy);
 
     // Enable CORS for openfisca-tracer

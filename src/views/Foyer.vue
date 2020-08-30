@@ -80,7 +80,6 @@ export default {
         return idx+1
       }
 
-      this.$matomo && this.$matomo.trackEvent('General', 'Progress error', route.fullPath)
       return this.total
     },
     title: function() {

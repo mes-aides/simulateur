@@ -166,29 +166,6 @@
     ID : ${resultatsId} (à conserver impérativement pour traitement de votre demande)
     ————`}">Ces résultats ne correspondent pas à ce que l'administration vous a attribué</a>.</li>
           </ul>
-          <small v-if="resultatsId">Cette simulation a pour identifiant <span class="preformatted">{{ resultatsId }}</span> (en savoir plus sur <router-link to="/cgu#donnees">le traitement de vos données personnelles</router-link>).</small><br>
-          <small>
-            <button v-on:click="toggleLinks" v-if="!showExpertLinks">Partenaires</button>
-            <div v-if="showExpertLinks">
-              Partenaires&nbsp;:
-            <ul>
-              <li><router-link to="/foyer/resultat/attendu">Indiquez les résultats attendus pour cette situation</router-link></li>
-              <li><a
-                v-if="openfiscaTracerURL"
-                target="_blank"
-                v-bind:href="openfiscaTracerURL"
-                >Accédez à l'outil d'analyse des résultats de cette simulation</a></li>
-              <li><a
-                v-if="openfiscaAxeURL"
-                target="_blank"
-                v-bind:href="openfiscaAxeURL"
-                >Analysez l'évolution des aides en fonction des ressources
-              </a></li>
-            </ul>
-            <button v-on:click="togglePrivate">
-              <span v-if="showPrivate">Cacher</span><span v-else>Afficher</span> les aides en test</button>
-            </div>
-          </small>
         </div>
 
         <div id="social">
@@ -309,28 +286,7 @@ export default {
         this.$store.dispatch('compute')
       }
     }
-
-    let vm = this
-    this.stopSubscription = this.$store.subscribe(({type}, { calculs }) => {
-      switch (type) {
-        case 'setResults':
-        {
-          calculs.resultats.droitsEligibles.forEach(function(d) {
-            vm.$matomo && vm.$matomo.trackEvent('General', 'show', d.label)
-          })
-          break
-        }
-        case 'saveComputationFailure':
-        {
-          vm.$matomo && vm.$matomo.trackEvent('General', 'Error')
-          break
-        }
-      }
-    })
   },
-  beforeDestroy: function() {
-    this.stopSubscription && this.stopSubscription()
-  }
 }
 </script>
 

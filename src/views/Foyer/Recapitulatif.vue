@@ -1,6 +1,6 @@
 <template>
   <form>
-    <router-link v-if="canGoToResults" to="/foyer/resultat">Aller directement à la page de résultat</router-link>
+    <router-link v-if="canGoToResults" to="/foyer/graphique">Aller directement à la page de résultat</router-link>
 
     <ul>
       <li v-for="step in previousSteps" v-bind:key="step.name">

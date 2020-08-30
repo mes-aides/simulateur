@@ -87,7 +87,7 @@
       </p>
 
       <p>Vous pouvez aussi revenir à <router-link
-          to="/foyer/resultat">
+          to="/foyer/graphique">
           la page de résultats
         </router-link>.</p>
     </div>
