@@ -71,7 +71,6 @@
 
       <div class="frame-resultats" v-show="isEmpty(droits) && ressourcesYearMinusTwoCaptured">
           <h2>Votre simulation n'a pas permis de découvrir de nouveaux droits.</h2>
-          <p>Si vous êtes dans une situation difficile, d'<router-link to="/sos">autres solutions existent</router-link>.</p>
       </div>
 
       <div class="print-hidden">

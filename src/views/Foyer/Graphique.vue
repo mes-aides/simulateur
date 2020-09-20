@@ -105,11 +105,8 @@
             <bar-chart
                 v-if="datacollection"
                 :chartdata="datacollection"
+                :options="chartOptions"
             ></bar-chart>
-            <line-chart
-                v-if="datacollection"
-                :chartdata="datacollection"
-            ></line-chart>
 
             <div
                 class="notification warning print-hidden"
@@ -147,12 +144,6 @@
                     Votre simulation n'a pas permis de découvrir de nouveaux
                     droits.
                 </h2>
-                <p>
-                    Si vous êtes dans une situation difficile, d'<router-link
-                        to="/sos"
-                        >autres solutions existent</router-link
-                    >.
-                </p>
             </div>
 
             <div class="print-hidden">
@@ -178,7 +169,7 @@
                         La plupart des résultats que nous vous proposons sont
                         automatiquement arrondis à une dizaine d'euros près.
                     </p>
-                    <ul>
+                    <!-- <ul>
                         <li>
                             <a
                                 v-mail="{
@@ -244,7 +235,7 @@
                                 l'administration vous a attribué</a
                             >.
                         </li>
-                    </ul>
+                    </ul> -->
                     <small v-if="resultatsId"
                         >Cette simulation a pour identifiant
                         <span class="preformatted">{{ resultatsId }}</span> (en
@@ -276,7 +267,18 @@ export default {
             openfiscaAxeURL: false,
             showExpertLinks: false,
             showPrivate: false,
-            datacollection: null
+            datacollection: null,
+            chartOptions: {
+                scales: {
+                    xAxes: [{
+                        stacked: true
+                    }],
+                    yAxes: [{
+                        stacked: true
+                    }]
+                }
+            }
+
         };
     },
     components: {
@@ -343,6 +345,7 @@ export default {
             return this.resultatStatus.error;
         },
         shouldDisplayResults: function() {
+            return true
             return (
                 !(
                     this.resultatStatus.updating ||

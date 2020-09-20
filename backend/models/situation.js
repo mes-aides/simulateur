@@ -134,8 +134,8 @@ SituationSchema.methods.compute = function() {
                 return reject(err);
             }
 
-            var aides = computeAides(that, openfiscaResponse, false);
-            resolve(aides);
+            openfiscaResponse.aides = computeAides(that, openfiscaResponse, true);
+            resolve(openfiscaResponse);
         });
     });
 };
@@ -145,14 +145,11 @@ function createSimulationJobs(situation) {
     const { salaire_net } = situation.demandeur
     const salaire = Math.max(...Object.values(salaire_net))
 
-    // create job for 2x upper salaries
-    for (let i = salaire; i < salaire * 2; i += STEP) {
-        agenda.now(SIMULATION_TASK, {salaireOffset: i, situation})
-    }
+    const startSalaire = salaire * 0.5;
+    const endSalaire = salaire * 2;
 
-    // create job for 2x lower salaries
-    for (let i = salaire * 0.5; i < salaire; i += STEP) {
-        agenda.now(SIMULATION_TASK, {salaireOffset: i, situation})
+    for (let i = startSalaire; i < endSalaire; i += STEP) {
+        agenda.now(SIMULATION_TASK, {salaireOffset: i - salaire, situationId: situation._id})
     }
 }
 

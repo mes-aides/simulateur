@@ -1,1 +1,8 @@
-ajouter un tooltip pour le calcul détaillé
+(C) ajouter un tooltip pour le calcul détaillé +aides
+x 2020-09-20 essayer de mettre des valeur vides dans les aides de la situation pour voir +aides
+ajouter socket pour le rechargement du graphique
+attendre la création de la situation pour le chargement du graphique
+améliorer le design
+mettre une page statique pour améliorer le référencement
+(C) pouvoir choisir le type de prestation à faire varier (salaire ou activité freelance)
+(C) exporter sous forme de pdf

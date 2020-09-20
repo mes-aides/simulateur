@@ -13,20 +13,25 @@ agenda.define(TEST_TASK, async job => {
 });
 
 agenda.define(SIMULATION_TASK, async job => {
-    const { salaireOffset, situation } = job.attrs.data;
-    console.log(`Agenda.simulation - start simulation for ${situation._id} for offset ${salaireOffset}`)
+    const { salaireOffset, situationId } = job.attrs.data;
+    console.log(`Agenda.simulation - start simulation for ${situationId} for offset ${salaireOffset}`)
     const Simulation = mongoose.model("Simulation");
+    const Situation = mongoose.model("Situation");
+
+    const situation = await Situation.findById(situationId);
 
     Object.keys(situation.demandeur.salaire_net).forEach(
         month => (situation.demandeur.salaire_net[month] += salaireOffset)
     );
 
-    openfisca.calculate(situation, (err, simulation) => {
-        if (err) throw err;
-        simulation.situation = situation;
-        Simulation.create(simulation);
-        console.log(`Agenda.simulation - finish simulation for ${situation._id} for offset ${salaireOffset}`)
-    });
+    const simulation = await situation.compute();
+    simulation._id = undefined;
+    simulation.situation = situation;
+    simulation.parameters = {
+        salaireOffset
+    }
+
+    await Simulation.create(simulation);
 });
 
 agenda.on("ready", function() {

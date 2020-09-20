@@ -194,11 +194,6 @@ const router = new Router({
       component: () => import(/* webpackChunkName: "cgu" */ './views/CGU.vue')
     },
     {
-      path: '/liens-utiles',
-      name: 'liens-utiles',
-      component: () => import(/* webpackChunkName: "liens-utiles" */ './views/LiensUtiles.vue')
-    },
-    {
       name: 'lieux',
       path: '/lieux/:commune/:type',
       component: () => import(/* webpackChunkName: "lieux" */ './views/Lieux.vue'),
@@ -207,16 +202,6 @@ const router = new Router({
       path: '/redirection',
       name: 'redirection',
       component: () => import(/* webpackChunkName: "redirection" */ './views/Redirection.vue')
-    },
-    {
-      path: '/social',
-      name: 'social',
-      component: () => import(/* webpackChunkName: "social" */ './views/Social.vue')
-    },
-    {
-      path: '/sos',
-      name: 'sos',
-      component: () => import(/* webpackChunkName: "sos" */ './views/SOS.vue')
     },
     {
       path: '/stats',

@@ -4,7 +4,6 @@ services:
 
   mongo:
     image: mongo
-    restart: always
     ports:
       - '27017:27017'
     volumes:
@@ -23,7 +22,6 @@ services:
     image: node:14.8
     working_dir: /usr/src/app
     command: bash -c "npm install && npm run dev"
-    restart: always
     environment:
       MONGODB_URL: mongodb://mongo:27017/dds
       OPENFISCA_URL: https://openfisca.mes-aides.org/

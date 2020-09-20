@@ -85,6 +85,21 @@ exports.openfiscaResponse = function(req, res, next) {
 };
 
 /**
+ * @param {{[key: any]: number}} object
+ * @returns {number}
+ */
+function getAverageObject(object) {
+    const a =  getAverage(Object.values(object).filter(v => !Number.isNaN(v)));
+
+    if (Number.isNaN(a)) {
+        // console.log(object)
+    }
+
+    return Number.isNaN(a) ? 0 : a;
+
+}
+
+/**
  * @param {Array<number>} array
  * @returns {number}
  */
@@ -114,29 +129,29 @@ exports.getSimulationsData = async function(req, res, next) {
             },
             {
                 projection: {
-                    "menages._.impots_directs": 1,
-                    "menages._.revenu_disponible": 1,
-                    "individus.demandeur.salaire_net": 1
+                    menages: 1,
+                    individus: 1,
+                    aides: 1,
                 }
             }
         )
+        .sort({ "individus.demandeur.salaire_net": 1 })
         .toArray();
 
-    /**
-     * @type {Chart.ChartDataSets}
-     */
-    const impotDirectsDataset = {
-        label: "Impôts directs",
-        backgroundColor: "red",
-        data: []
-    };
     /**
      * @type {Chart.ChartDataSets}
      */
     const revenuDisponibleDataset = {
         label: "Revenu disponible",
         backgroundColor: "green",
-
+        data: []
+    };
+    /**
+     * @type {Chart.ChartDataSets}
+     */
+    const aidesDataset = {
+        label: "aides",
+        backgroundColor: "orange",
         data: []
     };
 
@@ -145,26 +160,29 @@ exports.getSimulationsData = async function(req, res, next) {
      */
     const chartData = {
         labels: [],
-        datasets: []
+        datasets: [],
+
     };
 
     for (const result of results) {
-        const salaireNet = getAverage(
-            Object.values(result.individus.demandeur.salaire_net)
-        );
-        const revenuDisponible = getAverage(
-            Object.values(result.menages._.revenu_disponible)
-        );
-        const impotsDirect = getAverage(
-            Object.values(result.menages._.impots_directs)
+        const aides = result.aides.droitsEligibles.filter(d => Number.isInteger(d.montant)).reduce((acc, d) => acc + Number(d.montant), 0)
+        const menage = result.menages._;
+        const demandeur = result.individus.demandeur;
+
+        const salaireNet = getAverageObject(demandeur.salaire_net);
+        const revenuDisponible = Math.floor(
+            getAverageObject(menage.revenu_disponible) / 12
         );
 
         chartData.labels.push(salaireNet);
         revenuDisponibleDataset.data.push(revenuDisponible);
-        impotDirectsDataset.data.push(impotsDirect);
+        aidesDataset.data.push(aides);
     }
 
-    chartData.datasets = [impotDirectsDataset, revenuDisponibleDataset];
+    chartData.datasets = [
+        revenuDisponibleDataset,
+        aidesDataset
+    ];
 
     return res.json(chartData);
 };

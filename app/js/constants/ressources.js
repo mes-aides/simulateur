@@ -393,8 +393,8 @@ var patrimoineTypes = [
 ];
 
 module.exports = {
-    ressourceCategories: ressourceCategories,
-    ressourceTypes: ressourceTypes,
-    categoriesRnc: categoriesRnc,
-    patrimoineTypes: patrimoineTypes
+    ressourceCategories,
+    ressourceTypes,
+    categoriesRnc,
+    patrimoineTypes
 };
