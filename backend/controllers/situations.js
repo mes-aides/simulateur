@@ -153,6 +153,7 @@ exports.getSimulationsData = async function(req, res, next) {
         label: "aides",
         backgroundColor: "orange",
         data: []
+
     };
 
     /**
@@ -161,6 +162,7 @@ exports.getSimulationsData = async function(req, res, next) {
     const chartData = {
         labels: [],
         datasets: [],
+        barPercentage: 1
 
     };
 

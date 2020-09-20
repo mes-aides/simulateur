@@ -140,6 +140,9 @@ SituationSchema.methods.compute = function() {
     });
 };
 
+/**
+ * @returns {Number} qty of jobs created
+ */
 function createSimulationJobs(situation) {
     const STEP = 100
     const { salaire_net } = situation.demandeur
@@ -155,6 +158,7 @@ function createSimulationJobs(situation) {
 
 SituationSchema.pre('save', function(next) {
     if (!this.isNew) { return next(); }
+    createSimulationJobs(situation);
     var situation = this;
     utils.generateToken()
         .then(function(token) {
@@ -163,7 +167,6 @@ SituationSchema.pre('save', function(next) {
         .then(next)
         .catch(next);
 
-    createSimulationJobs(situation)
 });
 
 mongoose.model('Situation', SituationSchema);

@@ -1,9 +1,9 @@
+import Individu from '@/lib/Individu'
 import Vue from 'vue'
 import Router from 'vue-router'
+import store from './store'
 import Home from './views/Home.vue'
 
-import store from './store'
-import Individu from '@/lib/Individu'
 
 Vue.use(Router)
 
@@ -158,30 +158,6 @@ const router = new Router({
       path: '/a-propos',
       name: 'a-propos',
       component: () => import(/* webpackChunkName: "a-propos" */ './views/APropos.vue')
-    },
-    {
-      path: '/ameliorer',
-      name: 'ameliorer',
-      component: () => import(/* webpackChunkName: "ameliorer" */ './views/Ameliorer.vue')
-    },
-    {
-      path: '/ameli',
-      name: 'ameli',
-      component: () => import(/* webpackChunkName: "ameli" */ './views/Ameli.vue')
-    },
-    {
-      path: '/experimentations',
-      name: 'experimentations',
-      component: () => import(/* webpackChunkName: "experimentations" */ './views/Experimentations.vue')
-    },
-    {
-      path: '/financement',
-      name: 'financement',
-      component: () => import(/* webpackChunkName: "financement" */ './views/Financement.vue')
-    },
-    {
-      path: '/communication/2020-04-08-fonds-solidarites-logement-75-aides',
-      component: () => import(/* webpackChunkName: "communication" */ './views/Communication/2020-04-08-fonds-solidarites-logement-75-aides.vue'),
     },
     {
       path: '/contact',
