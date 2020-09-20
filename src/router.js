@@ -180,14 +180,9 @@ const router = new Router({
       component: () => import(/* webpackChunkName: "redirection" */ './views/Redirection.vue')
     },
     {
-      path: '/stats',
-      name: 'stats',
-      component: () => import(/* webpackChunkName: "stats" */ './views/Stats.vue')
-    },
-    {
-      path: '/suivi',
-      name: 'suivi',
-      component: () => import(/* webpackChunkName: "suivi" */ './views/Suivi.vue')
+      path: '/situations',
+      name: 'situations',
+      component: () => import(/* webpackChunkName: "suivi" */ './views/Situations.vue')
     },
     {
       path: '/toutes',

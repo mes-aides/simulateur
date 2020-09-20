@@ -5,11 +5,35 @@
    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
    xmlns:svg="http://www.w3.org/2000/svg"
    xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    id="svg1786"
    version="1.1"
    viewBox="0 0 253.3539 37.982334"
    height="37.982334mm"
-   width="253.3539mm">
+   width="253.3539mm"
+   sodipodi:docname="logo.svg"
+   inkscape:version="1.0.1 (3bc2e813f5, 2020-09-07)">
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1236"
+     inkscape:window-height="736"
+     id="namedview21"
+     showgrid="false"
+     inkscape:zoom="1.1414452"
+     inkscape:cx="478.77902"
+     inkscape:cy="71.777639"
+     inkscape:window-x="44"
+     inkscape:window-y="27"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="text5397" />
   <defs
      id="defs1780" />
   <metadata
@@ -37,55 +61,55 @@
          aria-label="MES-AIDES.ORG">
         <path
            id="path12"
-           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:42.33333206px;font-family:'Source Sans Pro';-inkscape-font-specification:'Source Sans Pro, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#d45500"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:42.33333206px;font-family:'Source Sans Pro';-inkscape-font-specification:'Source Sans Pro, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#008080"
            d="m 702.41445,-123.42458 h 5.588 v -10.11767 c 0,-2.70933 -0.508,-6.731 -0.80433,-9.398 h 0.16933 l 2.20133,6.56167 3.937,10.541 h 3.429 l 3.937,-10.541 2.24367,-6.56167 h 0.16933 c -0.29633,2.667 -0.80433,6.68867 -0.80433,9.398 v 10.11767 h 5.67267 v -27.60134 h -6.77334 l -4.36033,12.27667 c -0.55033,1.60867 -1.016,3.38667 -1.56633,5.08 h -0.16934 c -0.55033,-1.69333 -1.05833,-3.47133 -1.60866,-5.08 l -4.445,-12.27667 h -6.81567 z" />
         <path
            id="path14"
-           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:31.75px;font-family:'Source Sans Pro';-inkscape-font-specification:'Source Sans Pro, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#d45500;stroke-width:0.26458332"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:31.75px;font-family:'Source Sans Pro';-inkscape-font-specification:'Source Sans Pro, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#008080;stroke-width:0.26458332"
            d="m 733.84563,-123.42458 h 13.2715 v -3.937 h -8.60425 v -4.7625 h 7.0485 v -3.90525 h -7.0485 v -4.15925 h 8.28675 v -3.937 h -12.954 z" />
         <path
            id="path16"
-           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:31.75px;font-family:'Source Sans Pro';-inkscape-font-specification:'Source Sans Pro, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#d45500;stroke-width:0.26458332"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:31.75px;font-family:'Source Sans Pro';-inkscape-font-specification:'Source Sans Pro, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#008080;stroke-width:0.26458332"
            d="m 757.58917,-123.04358 c 4.953,0 7.8105,-2.9845 7.8105,-6.4135 0,-2.921 -1.5875,-4.60375 -4.09575,-5.61975 l -2.667,-1.0795 c -1.778,-0.73025 -3.14325,-1.17475 -3.14325,-2.44475 0,-1.17475 1.016,-1.87325 2.63525,-1.87325 1.651,0 2.921,0.60325 4.28625,1.651 l 2.38125,-2.95275 c -1.778,-1.778 -4.28625,-2.7305 -6.6675,-2.7305 -4.318,0 -7.366,2.7305 -7.366,6.1595 0,3.01625 2.032,4.79425 4.15925,5.6515 l 2.69875,1.143 c 1.80975,0.762 2.9845,1.17475 2.9845,2.4765 0,1.23825 -0.9525,2.00025 -2.88925,2.00025 -1.7145,0 -3.6195,-0.889 -5.11175,-2.159 l -2.667,3.20675 c 2.0955,1.9685 4.953,2.9845 7.65175,2.9845 z" />
         <path
            id="path18"
-           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:31.75px;font-family:'Source Sans Pro';-inkscape-font-specification:'Source Sans Pro, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#d45500;stroke-width:0.26458332"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:31.75px;font-family:'Source Sans Pro';-inkscape-font-specification:'Source Sans Pro, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#008080;stroke-width:0.26458332"
            d="m 768.42287,-129.80633 h 7.8105 v -3.302 h -7.8105 z" />
         <path
            id="path20"
-           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:42.33333206px;font-family:'Source Sans Pro';-inkscape-font-specification:'Source Sans Pro, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#d45500"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:42.33333206px;font-family:'Source Sans Pro';-inkscape-font-specification:'Source Sans Pro, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#008080"
            d="m 787.33628,-137.39458 c 0.762,-2.75167 1.48166,-5.969 2.159,-8.89 h 0.16933 c 0.71967,2.87866 1.48167,6.13833 2.24367,8.89 l 0.635,2.54 h -5.88434 z m -9.99067,13.97 h 6.35 l 1.69333,-6.56167 h 8.42434 l 1.69333,6.56167 h 6.604 l -8.636,-27.60134 h -7.493 z" />
         <path
            id="path22"
-           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:31.75px;font-family:'Source Sans Pro';-inkscape-font-specification:'Source Sans Pro, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#d45500;stroke-width:0.26458332"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:31.75px;font-family:'Source Sans Pro';-inkscape-font-specification:'Source Sans Pro, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#008080;stroke-width:0.26458332"
            d="m 804.27027,-123.42458 h 4.66725 v -20.701 h -4.66725 z" />
         <path
            id="path24"
-           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:31.75px;font-family:'Source Sans Pro';-inkscape-font-specification:'Source Sans Pro, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#d45500;stroke-width:0.26458332"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:31.75px;font-family:'Source Sans Pro';-inkscape-font-specification:'Source Sans Pro, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#008080;stroke-width:0.26458332"
            d="m 813.82007,-123.42458 h 6.096 c 6.06425,0 10.12825,-3.33375 10.12825,-10.44575 0,-7.112 -4.064,-10.25525 -10.38225,-10.25525 h -5.842 z m 4.66725,-3.77825 v -13.1445 h 0.889 c 3.52425,0 5.87375,1.524 5.87375,6.477 0,4.953 -2.3495,6.6675 -5.87375,6.6675 z" />
         <path
            id="path26"
-           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:31.75px;font-family:'Source Sans Pro';-inkscape-font-specification:'Source Sans Pro, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#d45500;stroke-width:0.26458332"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:31.75px;font-family:'Source Sans Pro';-inkscape-font-specification:'Source Sans Pro, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#008080;stroke-width:0.26458332"
            d="m 833.97388,-123.42458 h 13.2715 v -3.937 h -8.60425 v -4.7625 h 7.0485 v -3.90525 h -7.0485 v -4.15925 h 8.28675 v -3.937 h -12.954 z" />
         <path
            id="path28"
-           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:31.75px;font-family:'Source Sans Pro';-inkscape-font-specification:'Source Sans Pro, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#d45500;stroke-width:0.26458332"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:31.75px;font-family:'Source Sans Pro';-inkscape-font-specification:'Source Sans Pro, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#008080;stroke-width:0.26458332"
            d="m 857.71742,-123.04358 c 4.953,0 7.8105,-2.9845 7.8105,-6.4135 0,-2.921 -1.5875,-4.60375 -4.09575,-5.61975 l -2.667,-1.0795 c -1.778,-0.73025 -3.14325,-1.17475 -3.14325,-2.44475 0,-1.17475 1.016,-1.87325 2.63525,-1.87325 1.651,0 2.921,0.60325 4.28625,1.651 l 2.38125,-2.95275 c -1.778,-1.778 -4.28625,-2.7305 -6.6675,-2.7305 -4.318,0 -7.366,2.7305 -7.366,6.1595 0,3.01625 2.032,4.79425 4.15925,5.6515 l 2.69875,1.143 c 1.80975,0.762 2.9845,1.17475 2.9845,2.4765 0,1.23825 -0.9525,2.00025 -2.88925,2.00025 -1.7145,0 -3.6195,-0.889 -5.11175,-2.159 l -2.667,3.20675 c 2.0955,1.9685 4.953,2.9845 7.65175,2.9845 z" />
         <path
            id="path30"
-           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:31.75px;font-family:'Source Sans Pro';-inkscape-font-specification:'Source Sans Pro, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#d45500;stroke-width:0.26458332"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:31.75px;font-family:'Source Sans Pro';-inkscape-font-specification:'Source Sans Pro, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#008080;stroke-width:0.26458332"
            d="m 871.39026,-123.04358 c 1.61925,0 2.82575,-1.27 2.82575,-2.921 0,-1.68275 -1.2065,-2.95275 -2.82575,-2.95275 -1.61925,0 -2.82575,1.27 -2.82575,2.95275 0,1.651 1.2065,2.921 2.82575,2.921 z" />
         <path
            id="path32"
-           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:31.75px;font-family:'Source Sans Pro';-inkscape-font-specification:'Source Sans Pro, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#d45500;stroke-width:0.26458332"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:31.75px;font-family:'Source Sans Pro';-inkscape-font-specification:'Source Sans Pro, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#008080;stroke-width:0.26458332"
            d="m 887.03607,-123.04358 c 5.588,0 9.398,-4.064 9.398,-10.82675 0,-6.731 -3.81,-10.63625 -9.398,-10.63625 -5.588,0 -9.398,3.8735 -9.398,10.63625 0,6.76275 3.81,10.82675 9.398,10.82675 z m 0,-4.03225 c -2.82575,0 -4.60375,-2.63525 -4.60375,-6.7945 0,-4.1275 1.778,-6.604 4.60375,-6.604 2.82575,0 4.60375,2.4765 4.60375,6.604 0,4.15925 -1.778,6.7945 -4.60375,6.7945 z" />
         <path
            id="path34"
-           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:31.75px;font-family:'Source Sans Pro';-inkscape-font-specification:'Source Sans Pro, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#d45500;stroke-width:0.26458332"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:31.75px;font-family:'Source Sans Pro';-inkscape-font-specification:'Source Sans Pro, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#008080;stroke-width:0.26458332"
            d="m 900.32642,-123.42458 h 4.66725 v -7.46125 h 2.57175 l 3.96875,7.46125 h 5.23875 l -4.699,-8.28675 c 2.2225,-0.98425 3.683,-2.921 3.683,-5.969 0,-4.92125 -3.58775,-6.44525 -7.96925,-6.44525 h -7.46125 z m 4.66725,-11.176 v -5.81025 h 2.413 c 2.44475,0 3.77825,0.6985 3.77825,2.7305 0,2.032 -1.3335,3.07975 -3.77825,3.07975 z" />
         <path
            id="path36"
-           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:31.75px;font-family:'Source Sans Pro';-inkscape-font-specification:'Source Sans Pro, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#d45500;stroke-width:0.26458332"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:31.75px;font-family:'Source Sans Pro';-inkscape-font-specification:'Source Sans Pro, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#008080;stroke-width:0.26458332"
            d="m 928.9421,-123.04358 c 2.88925,0 5.3975,-1.11125 6.82625,-2.50825 v -9.525 h -7.5565 v 3.81 h 3.429 v 3.556 c -0.508,0.41275 -1.36525,0.635 -2.2225,0.635 -3.8735,0 -5.81025,-2.4765 -5.81025,-6.731 0,-4.15925 2.25425,-6.6675 5.461,-6.6675 1.778,0 2.8575,0.73025 3.90525,1.651 l 2.44475,-2.9845 c -1.36525,-1.397 -3.52425,-2.69875 -6.50875,-2.69875 -5.5245,0 -10.0965,4.0005 -10.0965,10.8585 0,6.95325 4.445,10.6045 10.12825,10.6045 z" />
       </g>
     </g>

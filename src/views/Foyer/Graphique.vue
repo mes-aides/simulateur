@@ -70,7 +70,12 @@
             </small>
         </div>
 
-        <div v-show="shouldDisplayResults">
+        <div v-if="datacollection">
+
+
+            <p>
+                Nous avons réalisé {{ datacollection.labels.length }} simulations autour de votre salaires. Cela donne donc des résultats pour un salaire mensuel net allant de <strong>{{ datacollection.labels[0] }}€ / mois</strong> à <strong>{{ datacollection.labels[datacollection.labels.length - 1] }}€ / mois</strong>.
+            </p>
 
             <bar-chart
                 v-if="datacollection"
@@ -205,14 +210,7 @@ export default {
             return this.resultatStatus.error;
         },
         shouldDisplayResults: function() {
-            return true
-            return (
-                !(
-                    this.resultatStatus.updating ||
-                    this.hasWarning ||
-                    this.hasError
-                ) && this.droits
-            );
+            return Boolean(datacollection);
         },
         error: function() {
             let value =
