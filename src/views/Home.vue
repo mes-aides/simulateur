@@ -36,6 +36,44 @@
                     ></small
                 >
             </p>
+            <section>
+                <h2>Question / réponses</h2>
+
+                <div class="qa">
+                    <p class="qa__q">
+                        Comment être sûr que le calcul est correct ?
+                    </p>
+                    <p class="qa__a">
+                        Cette application utilise le travail de deux choses:
+                    </p>
+                    <ul>
+                        <li>
+                            <a
+                                href="https://fr.openfisca.org/legislationhttps://openfisca.org/en/"
+                                >Openfisca</a
+                            >, un moteur de calcul libre et ouvert utilisé par des chercheurs en économie et d’autres services publics.
+                        </li>
+                        <li>
+                            <a
+                                href="https://mes-aides.ord"
+                                >mes-aides.org</a
+                            >, une ancienne <a href="un moteur de calcul libre et ouvert utilisé par des chercheurs en économie et d’autres services publics.">startup d’État de l’Incubateur de services numériques</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="qa">
+                    <p class="qa__q">
+                        Je vous donnes des informations sensibles. Qu'en est'il
+                        de la sécurité des données?
+                    </p>
+                    <p class="qa__a">
+                        Notre formulaie ne requiert aucune information
+                        personnelle permettant de relier votre situation à votre
+                        iddentité. Ainsi, aucun nom, prénom aĝe ne vous est
+                        demandé.
+                    </p>
+                </div>
+            </section>
         </div>
     </div>
 </template>
@@ -150,7 +188,11 @@ hr {
     background-repeat: no-repeat;
 }
 
-.panel {
-    border-color: #d45500;
+.qa {
+    margin-bottom: 1rem;
+}
+
+.qa__q {
+    font-weight: 800;
 }
 </style>
