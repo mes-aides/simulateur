@@ -6,3 +6,4 @@ améliorer le design
 mettre une page statique pour améliorer le référencement
 (C) pouvoir choisir le type de prestation à faire varier (salaire ou activité freelance)
 (C) exporter sous forme de pdf
+faire une page pour retrouver toutes les simulations

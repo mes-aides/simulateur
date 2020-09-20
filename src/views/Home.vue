@@ -1,149 +1,156 @@
 <template>
-  <div id="homepage">
-    <div class="container">
-      <main class="hero">
-        <div class="hero__container text-center">
-          <h1>
-            Évaluez vos droits à {{ prestationsNationalesCount + partenairesLocauxCount }} aides sociales.<br/>
-            En moins de 7 minutes.
-          </h1>
+    <div id="homepage">
+        <div class="container">
+            <main class="hero">
+                <div class="hero__container text-center">
+                    <h1>
+                        Evaluez votre pouvoir d'achat si vos revenus changent
+                    </h1>
 
-          <div>
-            <router-link
-              to="/experimentations"
-              v-bind:class="`button ${ctaSize} secondary`"
-              v-if="showExperiment"
-            >
-              🚀 Continuer l'expérimentation 🚀
-            </router-link>
-            <a v-bind:class="`button ${ctaSize} primary`"
-              v-on:click="newSituation()"
-            >
-              {{ctaLabel}}
-            </a>
-            <a v-bind:class="`button ${ctaSize} secondary`"
-              v-on:click="next()"
-              v-if="hasExistingSituation"
-            >
-              Reprendre la simulation
-            </a>
-          </div>
-          <p>Ce questionnaire en ligne simple vous donnera un montant mensuel pour chaque prestation et vous donnera accès aux démarches.</p>
-        </div>
-      </main>
-    </div>
+                    <WordSlider />
 
-    <div class="section">
-      <div class="container">
-        <div class="panel">
-          <h2 class="text-center">
-            {{ prestationsNationalesCount }} aides nationales et {{ partenairesLocauxCount }} aides locales évaluées par le simulateur
-          </h2>
-          <div class="cta">
-            <router-link class="button secondary" to="/toutes">
-              Accéder à la liste
-            </router-link>
-            <router-link class="button secondary" to="/ameliorer#proposer-une-aide">
-              Proposer une nouvelle aide
-            </router-link>
-          </div>
+                    <div>
+                        <a
+                            v-bind:class="`button ${ctaSize} primary`"
+                            v-on:click="newSituation()"
+                        >
+                            {{ ctaLabel }}
+                        </a>
+                        <a
+                            v-bind:class="`button ${ctaSize} secondary`"
+                            v-on:click="next()"
+                            v-if="hasExistingSituation"
+                        >
+                            Reprendre la simulation
+                        </a>
+                    </div>
+                </div>
+            </main>
+            <p>
+                Ce simulateur s'appuie sur
+                {{ prestationsNationalesCount }} aides nationales et
+                {{ partenairesLocauxCount }} aides locales.
+                <small
+                    ><router-link to="/toutes"
+                        >Accéder à la liste</router-link
+                    ></small
+                >
+            </p>
         </div>
-      </div>
     </div>
-  </div>
 </template>
 
 <script>
-import Institution from '../lib/Institution'
-import _ from 'lodash'
+import Institution from "../lib/Institution";
+import _ from "lodash";
+import WordSlider from "@/components/WordSlider";
 
 export default {
-  name: 'home',
-  data: () => {
-    let value = {}
-    const types = ['prestationsNationales', 'partenairesLocaux']
-    types.forEach(function(type) {
-      let providersWithoutPrivatePrestations = _.mapValues(Institution[type], function(provider) {
-        provider = _.assign({}, provider)
-        provider.prestations = _.reduce(provider.prestations, function(prestations, prestation, name) {
-          if (! prestation.private) {
-            prestations[name] = prestation;
-          }
-
-          return prestations
-        }, {});
-        return provider
-      })
-
-      value[type] = _.filter(providersWithoutPrivatePrestations, function(provider) { return _.size(provider.prestations) })
-      value[type + 'Count'] = Object.keys(value[type]).reduce(function(total, provider) {
-        return total + _.size(value[type][provider].prestations)
-      }, 0);
-    });
-
-    value.showExperiment = Institution.experimentations.length
-
-    return value
-  },
-  computed: {
-    hasExistingSituation: function() {
-      return this.$store.getters.passSanityCheck
+    name: "home",
+    components: {
+        WordSlider
     },
-    ctaLabel: function() {
-      return this.hasExistingSituation ? 'Commencer une nouvelle simulation' : 'Évaluer mes droits'
+    data: () => {
+        let value = {};
+        const types = ["prestationsNationales", "partenairesLocaux"];
+        types.forEach(function(type) {
+            let providersWithoutPrivatePrestations = _.mapValues(
+                Institution[type],
+                function(provider) {
+                    provider = _.assign({}, provider);
+                    provider.prestations = _.reduce(
+                        provider.prestations,
+                        function(prestations, prestation, name) {
+                            if (!prestation.private) {
+                                prestations[name] = prestation;
+                            }
+
+                            return prestations;
+                        },
+                        {}
+                    );
+                    return provider;
+                }
+            );
+
+            value[type] = _.filter(providersWithoutPrivatePrestations, function(
+                provider
+            ) {
+                return _.size(provider.prestations);
+            });
+            value[type + "Count"] = Object.keys(value[type]).reduce(function(
+                total,
+                provider
+            ) {
+                return total + _.size(value[type][provider].prestations);
+            },
+            0);
+        });
+
+        return value;
     },
-    ctaSize: function() {
-      return this.hasExistingSituation ? 'large' : 'xlarge'
+    computed: {
+        hasExistingSituation: function() {
+            return this.$store.getters.passSanityCheck;
+        },
+        ctaLabel: function() {
+            return this.hasExistingSituation
+                ? "Commencer une nouvelle simulation"
+                : "Évaluer mes droits";
+        },
+        ctaSize: function() {
+            return this.hasExistingSituation ? "large" : "xlarge";
+        }
+    },
+    methods: {
+        newSituation: function() {
+            this.$store.dispatch("clear", this.$route.query.external_id);
+            this.next();
+        },
+        next: function() {
+            this.$push();
+        }
     }
-  },
-  methods: {
-    newSituation: function() {
-      this.$store.dispatch('clear', this.$route.query.external_id)
-      this.next()
-    },
-    next: function() {
-      this.$push()
-    },
-  }
-}
+};
 </script>
 
 <style scoped lang="scss">
-.xlarge, .xlarge:active {
-  font-size: 2em;
-  line-height: 1em;
+.xlarge,
+.xlarge:active {
+    font-size: 2em;
+    line-height: 1em;
 }
 
 #app {
-  height: 100%;
+    height: 100%;
 }
 
 .cta {
-  display: flex;
-  justify-content: space-around;
-  align-items: stretch;
+    display: flex;
+    justify-content: space-around;
+    align-items: stretch;
 }
 
 .hero {
-  background-color: #fffa;
+    background-color: #fffa;
 }
 
 .hero__container {
-  min-height: 55vh;
+    min-height: 55vh;
 }
 
 hr {
-  border-top: 1px solid #ddd;
+    border-top: 1px solid #ddd;
 }
 
 #homepage {
-  background-attachment: fixed;
-  background-position: top center;
-  background-size: 100%;
-  background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: top center;
+    background-size: 100%;
+    background-repeat: no-repeat;
 }
 
 .panel {
-  border-color: #d45500;
+    border-color: #d45500;
 }
 </style>
