@@ -84,6 +84,7 @@
     "sass": "^1.26.5",
     "sass-loader": "^7.3",
     "vue-template-compiler": "^2.6.11",
+    "vue-textra": "^1.3.0",
     "world-countries": "github:mledoze/countries#25ac1083834"
   },
   "eslintConfig": {

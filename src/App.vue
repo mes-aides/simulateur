@@ -5,7 +5,7 @@
 </template>
 
 <script>
-  
+
 import BaseLayout from '@/components/BaseLayout.vue'
 
 export default {
@@ -45,11 +45,7 @@ a {
   text-decoration: none;
 }
 
-body, h1, h2, h3 {
-  font-family: "Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
-}
-
-h1, h2, h3, {
+h1, h2, h3 {
   font-weight: 300;
 }
 </style>
