@@ -24,7 +24,8 @@ export default {
 <style scoped>
 .wordslider {
     display: flex;
-    font-size: 18px;
+    font-size: 24px;
+    font-weight: 800;
     margin-top: 2rem;
     margin-bottom: 2rem;
     align-items: center;
@@ -34,7 +35,7 @@ p {
   margin-top: 0;
   margin-bottom: 0;
   margin-right: 5px;
-  /* width: 325px; */
+  width: 325px;
   /* display: inline */
 }
 p,
