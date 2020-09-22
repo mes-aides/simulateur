@@ -1,7 +1,10 @@
 <template>
   <div id="homepage">
     <section class="my-5 py-5 text-center">
-      <WordSlider class="mb-2" />
+      <div class="wordslider mb-2">
+        <p>Est-ce que ça vaut le coup de</p>
+        <textra :data="words" :timer="3" filter="flip" :infinite="true" />
+      </div>
       <bar-chart :chart-data="chartdata" :options="chartOptions"></bar-chart>
     </section>
     <section>
@@ -75,7 +78,6 @@
 <script>
 import Institution from "../lib/Institution";
 import _ from "lodash";
-import WordSlider from "@/components/WordSlider";
 import BarChart from "@/components/Charts/Bar";
 
 const labels = [
@@ -113,11 +115,16 @@ const chartdataSample = {
 export default {
   name: "home",
   components: {
-    WordSlider,
     BarChart,
   },
   data: () => {
     let value = {
+      words: [
+        "faire du freelance à côté.",
+        "faire 10 heures supplémentaire.",
+        "donner des cours de piano.",
+        "me mettre à mis-temps.",
+      ],
       chartdata: chartdataSample,
       chartOptions: {
         maintainAspectRatio: false,
@@ -216,6 +223,21 @@ export default {
 </script>
 
 <style>
+.wordslider {
+    font-size: 24px;
+    font-weight: 800;
+}
+.wordslider p {
+  margin-bottom: 1rem;
+}
+.wordslider p,
+.wordslider .textra {
+    font-size: 1.5em;
+}
+
+.textra {
+    color: orange;
+}
 .qa {
   margin-bottom: 1rem;
 }
