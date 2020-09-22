@@ -7,7 +7,7 @@
       v-on:click.self.prevent="hide">
       <div class="modal">
         <slot></slot>
-        <div class="form__group button__group">
+        <div class="form-group button__group">
           <a class="button"
             v-on:click="hide">
             Fermer

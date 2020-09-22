@@ -3,7 +3,7 @@
     <p v-show="accessStatus.fetching"><i class="fa fa-spinner fa-spin" aria-hidden="true"></i> Récupération de la situation en cours…</p>
     <p v-show="resultatStatus.updating"><i class="fa fa-spinner fa-spin" aria-hidden="true"></i> Calcul en cours de vos droits…</p>
 
-    <div class="notification warning" v-if="hasWarning">
+    <div class="alert alert-warning" v-if="hasWarning">
       <div>
         <h2><i class="fa fa-warning" aria-hidden="true"></i> Aucun résultat disponible</h2>
         <h3>La simulation à laquelle vous souhaitez accéder n‘est pas accessible.</h3>
@@ -58,7 +58,7 @@
 
       <OfflineResults v-if="!resultatStatus.updating && ! isEmpty(droits)" v-bind:id="resultatsId" />
 
-      <div class="notification warning print-hidden" v-if="! ressourcesYearMinusTwoCaptured">
+      <div class="alert alert-warning print-hidden" v-if="! ressourcesYearMinusTwoCaptured">
         <span>
           <h2 v-if="droits && !droits.length">Votre simulation n'a pas permis de découvrir de nouveaux droits.</h2>
           <i class="fa fa-warning text-warning" aria-hidden="true"></i>

@@ -7,7 +7,7 @@
       </p>
     </div>
 
-    <fieldset class="form__group">
+    <fieldset class="form-group">
       <label v-for="logementType in logementTypes" v-bind:key="logementType.id">
         <input type="radio"
           name="logementType"
@@ -20,16 +20,16 @@
       </label>
     </fieldset>
 
-    <YesNoQuestion class="form__group" v-model="menage.coloc" v-if="captureColocation">
+    <YesNoQuestion class="form-group" v-model="menage.coloc" v-if="captureColocation">
       Est-ce une colocation ?
     </YesNoQuestion>
 
-    <YesNoQuestion class="form__group" v-model="famille.proprietaire_proche_famille" v-if="captureProprietaireProcheFamille">
+    <YesNoQuestion class="form-group" v-model="famille.proprietaire_proche_famille" v-if="captureProprietaireProcheFamille">
       Avez-vous un lien de parenté direct avec votre propriétaire ?
       <template v-slot:help>Est-il un ascendant ou descendant de vous ou votre conjoint·e (enfant, grand-parent…) ?</template>
     </YesNoQuestion>
 
-    <fieldset class="form__group" v-show="captureLocationType">
+    <fieldset class="form-group" v-show="captureLocationType">
       <legend>Quel type de logement louez-vous ?</legend>
       <label class="radio" v-for="locationType in locationTypes" v-bind:key="locationType.id">
         <input
@@ -41,14 +41,14 @@
         </label>
     </fieldset>
 
-    <YesNoQuestion class="form__group" v-model="menage.logement_chambre" v-if="captureChambre">
+    <YesNoQuestion class="form-group" v-model="menage.logement_chambre" v-if="captureChambre">
       Est-ce une chambre ?
       <template v-slot:help>
         Une chambre est un logement qui ne comporte qu'une seule pièce et n'est pas équipée d'un WC.
       </template>
     </YesNoQuestion>
 
-    <YesNoQuestion class="form__group" v-model="logement.primoAccedant" v-if="logement.type == 'proprietaire'">
+    <YesNoQuestion class="form-group" v-model="logement.primoAccedant" v-if="logement.type == 'proprietaire'">
       Êtes-vous primo-accédant pour cette propriété ?
       <template v-slot:help>
         Un primo-accédant est une personne (ou un ménage) qui n’a pas été propriétaire
@@ -56,16 +56,16 @@
       </template>
     </YesNoQuestion>
 
-    <YesNoQuestion class="form__group" v-model="demandeur.habite_chez_parents" v-if="captureHabiteChezParents">
+    <YesNoQuestion class="form-group" v-model="demandeur.habite_chez_parents" v-if="captureHabiteChezParents">
       Habitez-vous avec vos parents ?
     </YesNoQuestion>
 
-    <YesNoQuestion class="form__group" v-model="menage.participation_frais" v-if="captureParticipationFrais">
+    <YesNoQuestion class="form-group" v-model="menage.participation_frais" v-if="captureParticipationFrais">
       Participez-vous aux frais du logement ?
       <template v-slot:help>Par exemple aux dépenses d'électricité, de téléphone, etc.</template>
     </YesNoQuestion>
 
-    <label v-if="captureLoyer" class="form__group">
+    <label v-if="captureLoyer" class="form-group">
       {{ loyerLabel }}
       <input type="number" v-select-on-click v-model.number="menage.loyer">
     </label>
@@ -74,24 +74,24 @@
       Laissez ce champ à 0 € si vous ne remboursez pas actuellement de crédit pour votre logement.
     </p>
 
-    <label v-if="captureCharges" class="form__group">
+    <label v-if="captureCharges" class="form-group">
       Vos charges locatives
       <input type="number" v-select-on-click v-model.number="menage.charges_locatives">
     </label>
 
-    <YesNoQuestion class="form__group" v-model="logement.pretSigneAvant2018" v-if="capturePretSigneAvant2018">
+    <YesNoQuestion class="form-group" v-model="logement.pretSigneAvant2018" v-if="capturePretSigneAvant2018">
       Avez-vous signé votre prêt <strong>avant</strong> le 1er janvier 2018 ?
     </YesNoQuestion>
 
-    <div class="form__group" v-if="captureCodePostal">
-      <label class="form__group" for="postal-code">Code postal
+    <div class="form-group" v-if="captureCodePostal">
+      <label class="form-group" for="postal-code">Code postal
         <input id="postal-code" v-model="menage.code_postal">
-        <p class="notification warning" v-if="displayPostalCodeWarning">
+        <p class="alert alert-warning" v-if="displayPostalCodeWarning">
           Ce code postal est invalide
         </p>
       </label>
 
-      <div class="form__group">
+      <div class="form-group">
         <p v-if="retrievingCommunes"><i class="fa fa-spinner fa-spin" aria-hidden="true"></i></p>
         <div v-show="communes && communes.length">
           <label for="commune">Ville</label>
@@ -106,7 +106,7 @@
       </div>
     </div>
 
-    <div v-if="captureResidentParis" class="form__group">
+    <div v-if="captureResidentParis" class="form-group">
       <YesNoQuestion v-model="famille.parisien">
         Avez-vous habité Paris au moins 3 ans depuis {{ yearsAgo(5) }} ?
       </YesNoQuestion>
@@ -118,7 +118,7 @@
     </p>
 
     <div class="text-right">
-      <button type="submit" class="button large" v-if="maySubmit" v-on:click.prevent="next">Valider</button>
+      <button type="submit" class="btn btn-lg btn-primary" v-if="maySubmit" v-on:click.prevent="next">Valider</button>
     </div>
 
   </form>

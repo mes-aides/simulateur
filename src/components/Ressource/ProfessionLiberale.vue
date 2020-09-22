@@ -1,7 +1,7 @@
-<template>  
+<template>
   <div>
     <h3>{{ ressource.meta.label }}</h3>
-    <label class="form__group">Type d'activité
+    <label class="form-group">Type d'activité
       <select v-model="ressource.extra.tns_autres_revenus_type_activite">
         <option value="achat_revente">Achat/revente ou fourniture de logement</option>
         <option value="bic">Autre activité relevant des BIC</option>
@@ -9,7 +9,7 @@
       </select>
     </label>
 
-    <label class="form__group">Bénéfice sur le dernier exercice clos
+    <label class="form-group">Bénéfice sur le dernier exercice clos
       <input
         type="number" v-select-on-click
         v-model="ressource.amounts[$store.state.dates.lastYear.id]">

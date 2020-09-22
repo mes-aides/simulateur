@@ -1,18 +1,18 @@
 <template>
-  <div class="form__group" v-bind:key="type.meta.id">
+  <div class="form-group" v-bind:key="type.meta.id">
     <legend><h2 v-if="!withoutHeader">{{ type.meta.label }}</h2></legend>
-    <YesNoQuestion class="form__group" v-model="singleValue">
+    <YesNoQuestion class="form-group" v-model="singleValue">
       <span v-html="getQuestionLabel(individu, type.meta, $store.state.dates.twelveMonthsAgo.label)" />
     </YesNoQuestion>
 
-    <label class="form__group" v-if="type.displayMonthly === true">
+    <label class="form-group" v-if="type.displayMonthly === true">
       Indiquez le montant <b>mensuel net</b> :
       <input type="number" v-select-on-click step="any"
         v-model.number="type.amounts[$store.state.dates.thisMonth.id]"
         v-on:input="$emit('update', 'singleValue', index, $event.target.value)"/>
     </label>
 
-    <div class="form__group" v-if="type.displayMonthly === false">
+    <div class="form-group" v-if="type.displayMonthly === false">
       <div>{{ getLongLabel(individu, type.meta) }}</div>
       <div v-for="(month, monthIndex) in type.months" v-bind:key="month.id">
         <label>

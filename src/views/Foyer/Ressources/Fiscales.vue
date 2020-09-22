@@ -5,13 +5,13 @@
       <br>Vous pouvez le retrouver en ligne sur <a target="_blank" rel="noopener" href="http://www.impots.gouv.fr/">impots.gouv.fr</a>.
     </p>
 
-    <div class="form__group" v-for="individu in individus" v-bind:key="individu.source.id">
+    <div class="form-group" v-for="individu in individus" v-bind:key="individu.source.id">
       <button type="button" v-if="!individu.display" v-on:click="individu.display = !individu.display">
         Déclarer des ressources pour {{ individu.label }}
       </button>
       <div v-if="individu.display">
         <h2>{{ individu.label | capitalize }}</h2>
-        <label class="form__group" v-for="ressource in categoriesRnc" v-bind:key="ressource.id">
+        <label class="form-group" v-for="ressource in categoriesRnc" v-bind:key="ressource.id">
           {{ ressource.label }}
           <input type="number" v-select-on-click v-model="individu.values[ressource.id][$store.state.dates.fiscalYear.id]" />
           <span v-if="individu.default[ressource.id]"> Ce montant vaut {{ individu.default[ressource.id] }} pour les 12 derniers mois.</span>
@@ -20,7 +20,7 @@
     </div>
 
     <div class="text-right">
-      <button type="submit" class="button large">Valider</button>
+      <button type="submit" class="btn btn-lg btn-primary">Valider</button>
     </div>
   </form>
 </template>

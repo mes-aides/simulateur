@@ -9,7 +9,7 @@
         <DroitMontant v-bind:droit="droit" unexpected v-if="droit.montant && (isString(droit.montant) || isNumber(droit.montant))" />
       </div>
 
-      <div class="notification warning print-hidden" v-if="droit.isBaseRessourcesYearMinusTwo && ! ressourcesYearMinusTwoCaptured && ! isString(droit.montant)">
+      <div class="alert alert-warning print-hidden" v-if="droit.isBaseRessourcesYearMinusTwo && ! ressourcesYearMinusTwoCaptured && ! isString(droit.montant)">
         <span>
           <i class="fa fa-warning" aria-hidden="true"></i>  Cette aide se base sur vos ressources de l'année {{ $store.state.dates.fiscalYear.label }}
         </span>
@@ -17,7 +17,7 @@
         <router-link class="button-outline warning text-center" to="ressources/fiscales">Déclarez vos ressources {{ $store.state.dates.fiscalYear.label }}</router-link>
       </div>
 
-      <div class="notification warning print-hidden" v-if="droit.isBaseRessourcesPatrimoine && ! patrimoineCaptured && ! isString(droit.montant)">
+      <div class="alert alert-warning print-hidden" v-if="droit.isBaseRessourcesPatrimoine && ! patrimoineCaptured && ! isString(droit.montant)">
         <span>
           <i class="fa fa-warning" aria-hidden="true"></i> Cette aide se base sur votre patrimoine. Vous avez un patrimoine immobilier, d'épargne, des revenus fonciers et/ou du capital ? Vous devez renseigner des informations complémentaires.
         </span>
@@ -25,7 +25,7 @@
         <router-link class="button-outline warning text-center" to="ressources/patrimoine">Déclarez votre patrimoine</router-link>
       </div>
 
-      <div class="notification warning print-hidden" v-if="isString(droit.montant)">
+      <div class="alert alert-warning print-hidden" v-if="isString(droit.montant)">
         <p>
           L'application Mes Aides ne peut pas calculer le montant de cette prestation, car <span v-html="droit.uncomputability[droit.montant].reason.user"></span>.
           <br>

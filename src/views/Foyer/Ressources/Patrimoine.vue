@@ -5,17 +5,17 @@
       Immobilier
     </h2>
 
-    <YesNoQuestion class="form__group" v-model="hasTerrainsNonLoues">
+    <YesNoQuestion class="form-group" v-model="hasTerrainsNonLoues">
       Avez-vous des terrains <b>non loués</b> ?
     </YesNoQuestion>
 
-    <div class="form__group" v-if="hasTerrainsNonLoues">
-      <label class="form__group">
+    <div class="form-group" v-if="hasTerrainsNonLoues">
+      <label class="form-group">
         Valeur <b>patrimoniale</b> totale de vos terrains <b>non loués</b>
         <input type="number" v-select-on-click v-model.number="demandeur.valeur_terrains_non_loues[periodKey]" />
       </label>
 
-      <label class="form__group">
+      <label class="form-group">
         Valeur <b>locative</b> totale de vos terrains <b>non loués</b>
         <input type="number" v-select-on-click v-model.number="demandeur.valeur_locative_terrains_non_loues[periodKey]" />
       </label>
@@ -24,20 +24,20 @@
       </p>
     </div>
 
-    <YesNoQuestion class="form__group" v-model="hasBatisNonLoues">
+    <YesNoQuestion class="form-group" v-model="hasBatisNonLoues">
       Avez-vous des appartements/immeubles <b>non loués</b> ?
       <template v-slot:help>
         Sauf résidence principale et bâtiments de l'exploitation agricole.
       </template>
     </YesNoQuestion>
 
-    <div class="form__group" v-if="hasBatisNonLoues">
-      <label class="form__group">
+    <div class="form-group" v-if="hasBatisNonLoues">
+      <label class="form-group">
         Valeur <b>patrimoniale</b> de vos appartements/immeubles <b>non loués</b>
         <input type="number" v-select-on-click v-model.number="demandeur.valeur_immo_non_loue[periodKey]" />
       </label>
 
-      <label class="form__group">
+      <label class="form-group">
         Valeur <b>locative</b> totale de vos appartements/immeubles <b>non loués</b>
         <input type="number" v-select-on-click v-model.number="demandeur.valeur_locative_immo_non_loue[periodKey]" />
       </label>
@@ -46,7 +46,7 @@
       </p>
     </div>
 
-    <label v-if="hasBiensLoues" class="form__group">Valeur <b>patrimoniale</b> de vos bien <b> loués</b>
+    <label v-if="hasBiensLoues" class="form-group">Valeur <b>patrimoniale</b> de vos bien <b> loués</b>
       <input type="number" v-select-on-click v-model.number="demandeur.valeur_patrimoine_loue[periodKey]" />
     </label>
 
@@ -55,12 +55,12 @@
       Épargne
     </h2>
 
-    <label class="form__group">
+    <label class="form-group">
       Livret A <span class="help-block">Aussi appelé Livret bleu.</span>
       <input type="number" v-select-on-click v-model.number="demandeur.livret_a[periodKey]" />
     </label>
 
-    <label class="form__group">
+    <label class="form-group">
       Total des autres produits d'épargne produisant des revenus <b>non imposables</b>
       <input type="number" v-select-on-click v-model.number="demandeur.epargne_revenus_non_imposables[periodKey]" />
       <span>
@@ -76,7 +76,7 @@
       </span>
     </label>
 
-    <label class="form__group">
+    <label class="form-group">
       Total de l'épargne produisant des revenus <b>imposables</b>
       <input type="number" v-select-on-click v-model.number="demandeur.epargne_revenus_imposables[periodKey]" />
       <span>
@@ -91,7 +91,7 @@
     </label>
 
     <div class="text-right">
-      <button type="submit" class="button large">Valider</button>
+      <button type="submit" class="btn btn-lg btn-primary">Valider</button>
     </div>
   </form>
 </template>

@@ -30,12 +30,12 @@
       </div>
 
       <form v-if="submitResult && !(submitResult.ok || submitResult.waiting || submitResult.error)">
-        <label class="form__group">Votre email<input name="email" v-model="email"></label>
-        <p class="notification warning" v-if="$v.email.$error">
+        <label class="form-group">Votre email<input name="email" v-model="email"></label>
+        <p class="alert alert-warning" v-if="$v.email.$error">
           Un email doit être indiqué.
         </p>
-        <button v-on:click.prevent="getRecap(true)" type="submit" class="form__group button-outline primary text-center">J'accepte d'être recontacté·e par email</button>
-        <button v-on:click.prevent="getRecap(false)" type="submit" class="form__group button-outline warning text-center">Non merci, je préfère ne recevoir que le récapitulatif</button>
+        <button v-on:click.prevent="getRecap(true)" type="submit" class="form-group button-outline primary text-center">J'accepte d'être recontacté·e par email</button>
+        <button v-on:click.prevent="getRecap(false)" type="submit" class="form-group button-outline warning text-center">Non merci, je préfère ne recevoir que le récapitulatif</button>
       </form>
     </Modal>
   </div>

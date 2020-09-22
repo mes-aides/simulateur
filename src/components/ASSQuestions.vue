@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="form__group">
+    <div class="form-group">
       <label for="mois-fin-contrat">
         Quand s’est terminé {{ individu.role == 'demandeur' ? 'votre' : 'son' }} dernier contrat de travail ? (MM/AAAA)
       </label>
@@ -10,7 +10,7 @@
       </div>
     </div>
 
-    <div class="form__group">
+    <div class="form-group">
       <YesNoQuestion v-model="individu.ass_precondition_remplie"
         v-if="capturePreconditionAss"
         >

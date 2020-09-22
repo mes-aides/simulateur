@@ -1,10 +1,10 @@
 <template>
   <form @submit.prevent="next">
-    <YesNoQuestion class="form__group" v-model="enfant.hasRessources" v-for="enfant in enfants" v-bind:key="enfant.id">
+    <YesNoQuestion class="form-group" v-model="enfant.hasRessources" v-for="enfant in enfants" v-bind:key="enfant.id">
         {{ enfant.firstName | capitalize }} a-t-il·elle perçu des ressources <strong>depuis {{ $store.state.dates.twelveMonthsAgo.label }}</strong> ?
     </YesNoQuestion>
     <div class="text-right">
-      <button type="submit" class="button large">Valider</button>
+      <button type="submit" class="btn btn-lg btn-primary">Valider</button>
     </div>
   </form>
 </template>

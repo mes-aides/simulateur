@@ -1,14 +1,14 @@
 <template>
   <div>
-    <form class="form__group">
-      <div class="form__group">
+    <form class="form-group">
+      <div class="form-group">
         <fieldset>
           <label><input type="radio" v-bind:value="false" name="couple" v-model="isInCouple">Je vis seul·e</label>
           <label><input type="radio" v-bind:value="true" name="couple" v-model="isInCouple">Je vis en couple</label>
         </fieldset>
       </div>
 
-      <div v-if="captureRsaIsolementRecent" class="form__group">
+      <div v-if="captureRsaIsolementRecent" class="form-group">
         <fieldset>
           <legend><h2>Depuis combien de temps vivez-vous seul·e ?</h2></legend>
           <label><input type="radio" v-bind:value="true" name="isolement" v-model="rsa_isolement_recent">Moins de 18 mois</label>
@@ -16,10 +16,10 @@
         </fieldset>
       </div>
       <div class="text-right" v-if="!isInCouple">
-        <button type="submit" class="button large" v-on:click.prevent="next">Valider</button>
+        <button type="submit" class="btn btn-lg btn-primary" v-on:click.prevent="next">Valider</button>
       </div>
     </form>
-    <IndividuForm v-if="isInCouple" class="form__group" v-model="conjoint" v-bind:existingIndividu="existingIndividu" v-on:input="next" />
+    <IndividuForm v-if="isInCouple" class="form-group" v-model="conjoint" v-bind:existingIndividu="existingIndividu" v-on:input="next" />
   </div>
 </template>
 
@@ -39,7 +39,7 @@ export default {
 
     let existingIndividu = Boolean(this.$store.state.situation.conjoint)
     let conjoint = existingIndividu ? this.$store.state.situation.conjoint :  Individu.getConjoint()
-        
+
     return {
       conjoint,
       demandeur,

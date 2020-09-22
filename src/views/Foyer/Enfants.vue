@@ -28,7 +28,7 @@
         </router-link>
       </div>
       <div class="text-right">
-        <button type="submit" class="button large" v-if="showValidate" v-on:click.prevent="next">Valider</button>
+        <button type="submit" class="btn btn-lg btn-primary" v-if="showValidate" v-on:click.prevent="next">Valider</button>
       </div>
     </form>
     <router-view/>
@@ -54,7 +54,7 @@ export default {
     },
     removeEnfant: function(enfant) {
         this.$store.dispatch('removeEnfant', enfant.id)
-      
+
         if (this.$route.name === 'enfants/modifier' && this.$route.params.id === enfant.id) {
           this.$router.push('/foyer/enfants')
         }

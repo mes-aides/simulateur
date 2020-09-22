@@ -2,7 +2,7 @@
   <div>
     <nav class="navbar navbar-light bg-light">
         <router-link to="/" class="navbar-brand" id="logo">
-          <img class="navbar__logo" src="./../../public/img/logo.svg" alt="Logo de Mes-Aides.org" />
+          <img class="navbar__logo" src="./../../public/img/logo.svg" alt="Logo de Mes-Aides.org" height="30" />
         </router-link>
     </nav>
 

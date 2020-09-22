@@ -1,17 +1,17 @@
 <template>
   <form>
-    <label class="form__group">
+    <label class="form-group">
       Salaire journalier de référence
       <input type="number" v-select-on-click v-model.number="salaire_journalier_reference">
     </label>
 
-    <label class="form__group">
+    <label class="form-group">
       Temps de travail par semaine
       <input type="number" v-select-on-click v-model.number="temps_travail_semaine">
     </label>
 
     <div class="text-right">
-      <button type="submit" class="button large" v-on:click.prevent="next">Valider</button>
+      <button type="submit" class="btn btn-lg btn-primary" v-on:click.prevent="next">Valider</button>
     </div>
   </form>
 </template>

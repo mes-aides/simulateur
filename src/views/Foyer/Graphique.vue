@@ -9,7 +9,7 @@
             cours de vos droits…
         </p>
 
-        <div class="notification warning" v-if="hasWarning">
+        <div class="alert alert-warning" v-if="hasWarning">
             <div>
                 <h2>
                     <i class="fa fa-warning" aria-hidden="true"></i> Aucun
@@ -84,7 +84,7 @@
             ></bar-chart>
 
             <div
-                class="notification warning print-hidden"
+                class="alert alert-warning print-hidden"
                 v-if="!ressourcesYearMinusTwoCaptured"
             >
                 <span>

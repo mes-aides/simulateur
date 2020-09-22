@@ -13,38 +13,38 @@
         Dans tous les cas, il est important d'expliciter les intentions derrière votre validation. En général, il s'agit d'indiquer <strong>la règle métier</strong>.
       </p>
 
-      <fieldset v-for="(item, index) in selection" v-bind:key="index" class="form__group">
+      <fieldset v-for="(item, index) in selection" v-bind:key="index" class="form-group">
         <legend v-if="item.ref"><h2>{{getTitle(item.ref)}}</h2></legend>
-        <div class="form__group">
+        <div class="form-group">
           <label for="de">Quelle est la prestation pour laquelle vous connaissez le résultat&nbsp;?</label>
           <select v-model="item.ref">
             <option v-for="(benefit, bIndex) in benefits" v-bind:key="bIndex" v-bind:value="benefit">{{benefit.label}}</option>
           </select>
         </div>
 
-        <div class="form__group" v-if="item.ref">
+        <div class="form-group" v-if="item.ref">
           <label for="de">La valeur obtenue</label>
           <input disabled v-bind:value="getActual(item.ref)" />
         </div>
 
-        <div class="form__group" v-if="item.ref">
+        <div class="form-group" v-if="item.ref">
           <label for="expected">Quelle est la valeur à laquelle vous vous attendiez&nbsp;?</label>
           <input id="expected" v-model="item.expected"/>
         </div>
 
-        <button class="form__group button small warning" v-on:click.prevent="remove(index)">Supprimer cette prestation</button>
+        <button class="form-group button small warning" v-on:click.prevent="remove(index)">Supprimer cette prestation</button>
       </fieldset>
 
-      <button class="form__group button secondary" v-on:click.prevent="add">Ajouter une autre prestation pour laquelle vous connaissez le résultat</button>
+      <button class="form-group button secondary" v-on:click.prevent="add">Ajouter une autre prestation pour laquelle vous connaissez le résultat</button>
 
-      <label class="form__group">Description courte
+      <label class="form-group">Description courte
         <input
           placeholder="Les AL ne sont pas prises en compte dans le RSA"
           v-model="shortDescription"
         />
       </label>
 
-      <label class="form__group">Description détaillée
+      <label class="form-group">Description détaillée
         <textarea
           rows="9"
           v-bind:placeholder="detailed"
@@ -52,20 +52,20 @@
         ></textarea>
       </label>
 
-      <label class="form__group">
+      <label class="form-group">
         <input type="checkbox" v-model="consentGiven">
         J'accepte que les données de cette simulation soient visibles en ligne. Si les informations correspondent à une situation réelle, vous devriez <router-link to="/foyer/recapitulatif">les modifier</router-link>.
       </label>
 
-      <p class="notification warning inline" v-if="showConsentNotice">
+      <p class="alert alert-warning inline" v-if="showConsentNotice">
         Vous devez accepter la publication des données. <router-link to="/foyer/recapitulatif">Vous pouvez les anonymiser si nécessaire.</router-link>
       </p>
 
-      <p class="notification warning" v-if="message">
+      <p class="alert alert-warning" v-if="message">
         {{message}}
       </p>
 
-      <p class="notification warning" v-if="error">
+      <p class="alert alert-warning" v-if="error">
         {{error}}
       </p>
 

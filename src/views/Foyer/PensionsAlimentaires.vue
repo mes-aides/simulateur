@@ -1,19 +1,19 @@
 <template>
   <form>
-    <YesNoQuestion class="form__group" v-model="parentsPayPensionsAlimentaires">
+    <YesNoQuestion class="form-group" v-model="parentsPayPensionsAlimentaires">
       {{ subject }} <strong>versé</strong> des pensions alimentaires <b>
       depuis {{ $store.state.dates.twelveMonthsAgo.label }}</b> ?
     </YesNoQuestion>
 
-    <div class="form__group" v-if="parentsPayPensionsAlimentaires">
-      <div class="form__group" v-for="(item, index) in types" v-bind:key="item.individu.id">
+    <div class="form-group" v-if="parentsPayPensionsAlimentaires">
+      <div class="form-group" v-for="(item, index) in types" v-bind:key="item.individu.id">
         <h2>{{ individuLabel(item.individu) | capitalize }}</h2>
         <RessourceMontants without-header v-bind:individu="item.individu" v-bind:index="index" v-bind:type="item" v-on:update="process"/>
       </div>
     </div>
 
     <div class="text-right">
-      <button type="submit" class="button large" v-on:click.prevent="next">Valider</button>
+      <button type="submit" class="btn btn-lg btn-primary" v-on:click.prevent="next">Valider</button>
     </div>
 
     <router-link to="extra-pole-emploi">Expérimentation ESTIME</router-link>
