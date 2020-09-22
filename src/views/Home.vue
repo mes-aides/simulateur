@@ -36,7 +36,7 @@
         <router-link to="/toutes">Accéder à la liste</router-link>
       </small>
     </p>
-    <section>
+    <section class="my-5">
       <h2>Question / réponses</h2>
 
       <div class="qa">
