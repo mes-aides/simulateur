@@ -99,6 +99,7 @@ export default {
 .main {
   flex: 1 0 auto;
   background-color: whitesmoke;
+  min-height: 90vh;
 }
 
 .main.notification {

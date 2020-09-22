@@ -1,19 +1,15 @@
 <template>
   <div>
-    <header class="navbar" role="navigation">
-      <div class="navbar__container">
-        <nav>
-          <router-link to="/" class="navbar__home" id="logo">
-            <img class="navbar__logo" src="./../../public/img/logo.svg" alt="Logo de Mes-Aides.org" />
-          </router-link>
-        </nav>
+    <nav class="navbar navbar-light bg-light">
+        <router-link to="/" class="navbar-brand" id="logo">
+          <img class="navbar__logo" src="./../../public/img/logo.svg" alt="Logo de Mes-Aides.org" />
+        </router-link>
+    </nav>
 
-        <div class="navbar__home">
-        </div>
-      </div>
-    </header>
+    <div class="container">
+      <slot></slot>
+    </div>
 
-    <slot></slot>
 
     <footer class="footer">
       <nav class="container">
@@ -37,35 +33,3 @@ export default {
   components: { }
 }
 </script>
-
-<style scoped lang="scss">
-.navbar__container {
-  padding: 0.2em;
-  flex-wrap: nowrap;
-  -ms-flex-direction: row;
-  flex-direction: row;
-}
-
-@media (max-width: 600px) {
-  .navbar__home span {
-    font-size: 12px;
-  }
-}
-
-@media (max-width: 450px) {
-  .navbar__home {
-    height: 20px;
-  }
-}
-
-#logo:hover, #logo:focus {
-    opacity: 1;
-    background-color: unset;
-}
-
-footer, footer a {
-  background-color: white;
-  color: black;
-  text-decoration: none;
-}
-</style>

@@ -2,7 +2,6 @@ import "@/styles/main.scss";
 import "core-js/stable";
 import "font-awesome/scss/font-awesome.scss";
 import moment from "moment";
-import "template.data.gouv.fr/dist/main.css";
 import Vue from "vue";
 import AsyncComputed from "vue-async-computed";
 import Textra from "vue-textra";
