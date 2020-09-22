@@ -1,13 +1,12 @@
 <template>
   <div id="homepage">
-      <section class="my-5 py-5 text-center">
-
-        <WordSlider />
-      </section>
+    <section class="my-5 py-5 text-center">
+      <WordSlider class="mb-2" />
+      <bar-chart :chart-data="chartdata" :options="chartOptions"></bar-chart>
+    </section>
     <section>
       <div class="hero__container text-center">
         <h1 class="d-none">Evaluez votre pouvoir d'achat si vos revenus changent.</h1>
-
 
         <p>
           $PROJECT_NAME va effectuer des simulations en faisant
@@ -24,10 +23,6 @@
         </div>
       </div>
     </section>
-    <div>
-        <p>Voici un exemple</p>
-      <bar-chart :chartdata="chartdata" :options="chartOptions"></bar-chart>
-    </div>
     <p>
       Ce simulateur s'appuie sur
       {{ prestationsNationalesCount }} aides nationales et
@@ -60,6 +55,7 @@
           </li>
         </ul>
       </div>
+      <button @click="changeDataset()">tets</button>
       <div class="qa">
         <p class="qa__q">
           Je vous donnes des informations sensibles. Qu'en est'il
@@ -82,87 +78,33 @@ import _ from "lodash";
 import WordSlider from "@/components/WordSlider";
 import BarChart from "@/components/Charts/Bar";
 
-const chartdata = {
-  labels: [
-    900,
-    1000,
-    1100,
-    1200,
-    1300,
-    1400,
-    1500,
-    1600,
-    1700,
-    1800,
-    1900,
-    2000,
-  ],
+const labels = [
+  900,
+  1000,
+  1100,
+  1200,
+  1300,
+  1400,
+  1500,
+  1600,
+  1700,
+  1800,
+  1900,
+  2000,
+];
+
+const chartdataSample = {
+  labels,
   datasets: [
     {
       label: "Revenu disponible",
       backgroundColor: "green",
-      data: [
-        777,
-        824,
-        871,
-        918,
-        957,
-        996,
-        1034,
-        1073,
-        1112,
-        1150,
-        1197,
-        1246,
-        // 1295,
-        // 1343,
-        // 1392,
-        // 1440,
-        // 1489,
-        // 1537,
-        // 1586,
-        // 1635,
-        // 1683,
-        // 1732,
-        // 1778,
-        // 1822,
-        // 1866,
-        // 1909,
-        // 1953
-      ],
+      data: [777, 824, 871, 918, 957, 996, 1034, 1073, 1112, 1150, 1197, 1246],
     },
     {
       label: "aides",
       backgroundColor: "orange",
-      data: [
-        332,
-        274,
-        251,
-        236,
-        206,
-        166,
-        126,
-        86,
-        46,
-        0,
-        0,
-        0,
-        // 0,
-        // 0,
-        // 0,
-        // 0,
-        // 0,
-        // 0,
-        // 0,
-        // 0,
-        // 0,
-        // 0,
-        // 0,
-        // 0,
-        // 0,
-        // 0,
-        // 0
-      ],
+      data: [332, 274, 251, 236, 206, 166, 126, 86, 46, 0, 0, 0],
     },
   ],
   barPercentage: 1,
@@ -176,11 +118,8 @@ export default {
   },
   data: () => {
     let value = {
-      chartdata,
+      chartdata: chartdataSample,
       chartOptions: {
-        // height: '400px',
-        // position: 'relative',
-        // responsive: false,
         maintainAspectRatio: false,
         scales: {
           xAxes: [
@@ -247,6 +186,21 @@ export default {
     },
   },
   methods: {
+    changeDataset: function () {
+      const chartdata = { ...chartdataSample };
+
+      for (let i = 0; i < chartdata.datasets.length; i++) {
+        const offset = Math.random() * 300 - 150;
+        chartdata.datasets[i].data = chartdata.datasets[i].data
+          .map((d) => d + offset)
+          .map((d) => (d > 0 ? d : 0));
+      }
+
+      this.chartdata = chartdata;
+    },
+    getRandomInt() {
+      return Math.floor(Math.random() * (50 - 5 + 1)) + 5;
+    },
     newSituation: function () {
       this.$store.dispatch("clear", this.$route.query.external_id);
       this.next();
@@ -254,6 +208,9 @@ export default {
     next: function () {
       this.$push();
     },
+  },
+  mounted() {
+    setInterval(this.changeDataset, 3750);
   },
 };
 </script>

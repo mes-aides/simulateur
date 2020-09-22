@@ -1,7 +1,7 @@
 <template>
     <div class="wordslider">
         <p>Est-ce que ça vaut le coup de</p>
-        <textra :data="words" :timer="3" filter="scale" :infinite='true' />
+        <textra :data="words" :timer="3" filter="flip" :infinite='true' />
     </div>
 </template>
 
@@ -26,8 +26,6 @@ export default {
     /* display: flex; */
     font-size: 24px;
     font-weight: 800;
-    margin-top: 2rem;
-    margin-bottom: 2rem;
     /* align-items: center; */
     /* justify-content: center; */
     /* flex-direction: column; */
