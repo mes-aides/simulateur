@@ -5,16 +5,15 @@
       <label for="date-de-naissance">Date de naissance</label>
       <InputDate id="date-de-naissance" v-model="individu.date_naissance" />
       <p
-        class="alert alert-warning"
+        class="text-warning"
         v-if="$v.individu.date_naissance.$dirty && $v.individu.date_naissance.$error"
       >Ce champ est obligatoire.</p>
     </div>
 
-    <p class="alert alert-warning" v-if="isDemandeurMineur">
-      <i class="alert alert-warning" aria-hidden="true"></i>
+    <p class="text-warning" v-if="isDemandeurMineur">
       Les aides simulées ne peuvent normalement être attribuées qu'à des personnes majeures.
-      <br />Pour bénéficier d'aides, vous devrez démontrer aux organismes qui les distribuent que vous n'avez plus de liens avec vos parents ou tuteurs.
-      <br />Si ce n'est pas le cas, faites plutôt la simulation du point de vue d'un de vos parents ou tuteurs.
+      Pour bénéficier d'aides, vous devrez démontrer aux organismes qui les distribuent que vous n'avez plus de liens avec vos parents ou tuteurs.
+      Si ce n'est pas le cas, faites plutôt la simulation du point de vue d'un de vos parents ou tuteurs.
     </p>
 
     <div class="form-group" v-if="captureFirstName">

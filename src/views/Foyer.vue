@@ -104,9 +104,11 @@ export default {
 </script>
 
 <style lang="scss">
+@import "../../node_modules/bootswatch/dist/litera/_variables.scss";
+
 .main {
   flex: 1 0 auto;
-  min-height: 90vh;
+  min-height: 85vh;
 }
 
 .main.notification {
@@ -128,17 +130,9 @@ h1[tabindex="-1"] {
   outline: none;
 }
 
-a.button:focus,
-button.button:focus,
-input[type="submit"]:focus,
-input[type="button"]:focus {
-  background: #003b80;
-  background: var(--theme-secondary-darken);
-}
-
 .progress {
   height: 0.7em;
-  background-color: #003b80;
+  background-color: $primary;
   transition: all 0.5s;
 }
 

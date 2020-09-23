@@ -1,45 +1,43 @@
 <template>
   <div id="homepage">
     <section class="my-5 py-5 text-center">
-      <div class="wordslider mb-2">
+      <div class="wordslider mb-4">
         <p>Est-ce que ça vaut le coup de</p>
         <textra :data="words" :timer="3" filter="flip" :infinite="true" />
       </div>
       <bar-chart :chart-data="chartdata" :options="chartOptions"></bar-chart>
     </section>
-    <section>
-      <div class="hero__container text-center">
-        <h1 class="d-none">Evaluez votre pouvoir d'achat si vos revenus changent.</h1>
+    <section class="text-center lead">
+      <h1 class="d-none">Evaluez votre pouvoir d'achat si vos revenus changent.</h1>
 
-        <p>
-          $PROJECT_NAME va effectuer des simulations en faisant
-          évoluer vos revenus et ainsi calculer vos aides.
-        </p>
-
-        <div>
-          <a class="btn btn-primary btn-lg" v-on:click="newSituation()">{{ ctaLabel }}</a>
-          <a
-            class="btn btn-primary btn-lg"
-            v-on:click="next()"
-            v-if="hasExistingSituation"
-          >Reprendre la simulation</a>
-        </div>
+      <div class="my-5">
+        <a class="btn btn-primary btn-lg" v-on:click="newSituation()">{{ ctaLabel }}</a>
+        <a
+          class="btn btn-primary btn-lg"
+          v-on:click="next()"
+          v-if="hasExistingSituation"
+        >Reprendre la simulation</a>
       </div>
+      <p>
+        $PROJECT_NAME va effectuer des <strong>simulations</strong> en faisant
+        évoluer vos revenus et ainsi calculer vos aides.
+      </p>
+      <p>
+        Ce simulateur s'appuie sur
+        {{ prestationsNationalesCount }} aides nationales et
+        {{ partenairesLocauxCount }} aides locales.
+      </p>
+      <p class="text-right">
+        <router-link to="/toutes" class="btn btn-link">Accéder à la liste</router-link>
+      </p>
     </section>
-    <p>
-      Ce simulateur s'appuie sur
-      {{ prestationsNationalesCount }} aides nationales et
-      {{ partenairesLocauxCount }} aides locales.
-      <small>
-        <router-link to="/toutes">Accéder à la liste</router-link>
-      </small>
-    </p>
+    <hr class="my-5" />
     <section class="my-5">
       <h2>Question / réponses</h2>
 
       <div class="qa">
         <p class="qa__q">Comment être sûr que le calcul est correct ?</p>
-        <p class="qa__a">Cette application utilise le travail de deux choses:</p>
+        <p class="qa__a">Cette application s'appuie sur le travail de</p>
         <ul>
           <li>
             <a href="https://fr.openfisca.org/legislationhttps://openfisca.org/en/">Openfisca</a>, un moteur de calcul libre et ouvert utilisé par
@@ -58,7 +56,6 @@
           </li>
         </ul>
       </div>
-      <button @click="changeDataset()">tets</button>
       <div class="qa">
         <p class="qa__q">
           Je vous donnes des informations sensibles. Qu'en est'il
@@ -222,27 +219,32 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
+@import "../../node_modules/bootswatch/dist/litera/_variables.scss";
+
 .wordslider {
-    font-size: 24px;
-    font-weight: 800;
+  font-size: 24px;
+  font-weight: 800;
 }
 .wordslider p {
   margin-bottom: 1rem;
 }
 .wordslider p,
 .wordslider .textra {
-    font-size: 1.5em;
+  font-size: 1.5em;
 }
 
 .textra {
-    color: orange;
+  color: $orange;
 }
 .qa {
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
 }
 
 .qa__q {
-  font-weight: 800;
+  color: $gray-600;
+  border-left: 0.5rem solid $gray-600;
+  padding-left: 0.5rem;
+  font-style: italic;
 }
 </style>

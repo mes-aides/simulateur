@@ -1,6 +1,14 @@
 
 @import "../../node_modules/bootswatch/dist/litera/bootstrap.min.css";
 
+// MY SHITTY STUFF
+#app {
+  min-height: 100vh;
+}
+// END MY SHITTY STUFF
+
+
+
 // FROM BOOTSTRAP
 $font-size-base:          15px;
 $font-size-h2:            floor(($font-size-base * 2.15)); // ~30px
