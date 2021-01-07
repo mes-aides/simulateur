@@ -50,6 +50,9 @@ jobs:
           keys:
             - v12.1.4-dependencies-{{ .Branch }}-{{ checksum "package-lock.json" }}
       - run:
+          name: Check tool versions
+          command: npm --version && node --version
+      - run:
           name: Install packages from package-lock.json
           command: npm ci
       - save_cache:
