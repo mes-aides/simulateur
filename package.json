@@ -87,7 +87,7 @@
     "eslint-plugin-vue": "^6.2.2",
     "mustache": "^4.1.0",
     "sass": "^1.26.5",
-    "sass-loader": "^7.3",
+    "sass-loader": "^10.1.1",
     "vue-template-compiler": "^2.6.12",
     "world-countries": "github:mledoze/countries#25ac1083834"
   },
