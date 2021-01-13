@@ -4,7 +4,7 @@
       <label for="mois-fin-contrat">
         Quand s’est terminé {{ individu.role == 'demandeur' ? 'votre' : 'son' }} dernier contrat de travail ? (MM/AAAA)
       </label>
-      <InputMonth id="mois-fin-contrat" v-bind:value="individu.date_debut_chomage" v-on:input="$emit('updateDate', $event)" />
+      <InputMonth id="mois-fin-contrat" v-bind:value="individu.date_debut_chomage" v-on:input="$emit('updateDate', $event)"  />
       <div>
         {{ individu.role == 'demandeur' ? 'Si vous n\'avez' : 'S\'il ou elle n\'a' }} jamais eu de contrat de travail, laissez ce champ vide.
       </div>
