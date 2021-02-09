@@ -10,11 +10,11 @@ description: >-
   exceptionnelles.
 
 
-  L’attribution de l’aide est soumise à une évaluation de la situation du demandeur par la Maison départementale de l’autonomie (MDA)
 conditions:
-  - Cette aide n’est pas cumulable avec l’Allocation compensatrice pour tierce
-    personne (ACTP), l’Allocation personnalisée d’autonomie (APA) et
-    l’Allocation d’éducation de l’enfant handicapé (AEEH)
+  - Ne pas déjà bénéficier d’Allocation compensatrice pour tierce
+    personne (ACTP), d’Allocation personnalisée d’autonomie (APA) ou 
+    d’Allocation d’éducation de l’enfant handicapé (AEEH)
+  - Faire évaluer votre situation personnelle par la maison départementale de l'autonomie (MDA)
 link: https://www.eurelien.fr/guide/autonomie
 prefix: la
 type: bool
