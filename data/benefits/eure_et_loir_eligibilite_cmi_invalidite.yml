@@ -5,8 +5,6 @@ description: >
   lieux publics, les salles d’attente et les transports en commun, de bénéficier
   d’avantages fiscaux et de réductions tarifaires.
 conditions:
-  - être bénéficiaire de l’Allocation personnalisée d’autonomie (APA) et classé
-    en GIR 1 ou en GIR 2
 link: https://www.eurelien.fr/guide/autonomie
 prefix: la
 type: bool
