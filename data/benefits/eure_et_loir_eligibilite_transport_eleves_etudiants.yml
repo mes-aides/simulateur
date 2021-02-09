@@ -6,8 +6,8 @@ description: >
   de la gravité de leur handicap, médicalement établie, sont pris en charge par
   le Conseil départemental.
 conditions:
-  - Evaluer la situation du demandeur par la Maison départementale de
-    l’autonomie (MDA) pour bénéficier de l'aide.
+  - Faire évaluer votre situation personnelle par la Maison départementale de
+    l’autonomie (MDA).
 prefix: le
 type: bool
 floorAt: 10
