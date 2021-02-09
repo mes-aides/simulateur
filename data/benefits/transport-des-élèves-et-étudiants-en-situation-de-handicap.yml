@@ -1,0 +1,14 @@
+label: transport des élèves et étudiants en situation de handicap
+institution: departement_eure_et_loir
+description: >
+  Les frais de déplacement exposés par les élèves et étudiants en situation de
+  handicap qui ne peuvent utiliser les moyens de transport en commun en raison
+  de la gravité de leur handicap, médicalement établie, sont pris en charge par
+  le Conseil départemental.
+conditions:
+  - Evaluer la situation du demandeur par la Maison départementale de
+    l’autonomie (MDA) pour bénéficier de l'aide.
+prefix: le
+type: bool
+floorAt: 10
+entity: individus
