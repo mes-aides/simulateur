@@ -1,13 +1,10 @@
 label: aide sociale à l’hébergement (ASH)
 institution: departement_eure_et_loir
-description: "Toute personne âgée de 18 ans et plus, dont l’état de santé ou le
-  handicap nécessite l’entrée en établissement social ou médico-social
-  (hébergement permanent, hébergement temporaire, accueil de jour), peut
-  bénéficier d’une prise en charge des frais de séjour en foyer d’hébergement,
-  en foyer occupationnel, en foyer de vie, en foyer d’accueil médicalisé. "
+description: "L’aide sociale à l’hébergement permet aux personnes dont l’état de santé ou le handicap nécessite l’entrée en établissement social ou médico-social (hébergement permanent, hébergement temporaire, accueil de jour),
+de bénéficier d’une prise en charge des frais de séjour en foyer d’hébergement, en foyer occupationnel, en foyer de vie et en foyer d’accueil médicalisé. "
 conditions:
   - >-
-    Etre amener à contribue aux frais de séjour dans des conditions définies
+    Contribuer aux frais de séjour dans des conditions définies
     dans le cadre du règlement départemental d’aide sociale.
 
     Faire évaluer votre besoin par la Maison départementale de l’autonomie (MDA).
