@@ -1,0 +1,12 @@
+label: aide sociale à l’hébergement (ASH) en établissement
+institution: departement_eure_et_loir
+description: >
+  L’aide sociale à l’hébergement en établissement s’adresse aux personnes
+  résidant en EHPAD, en résidence autonomie ou en USLD et dont les ressources ne
+  permettent pas de faire face aux frais d’hébergement.
+conditions: []
+link: https://www.eurelien.fr/guide/autonomie#guide-block-165
+prefix: l’
+type: bool
+floorAt: 10
+entity: individus
