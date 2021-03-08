@@ -1,0 +1,8 @@
+label: bourse sur critères sociaux
+institution: enseignement_superieur
+description: TBD
+link: https://eurelien.fr/guide/action-et-aides-sociales
+prefix: une
+type: float
+floorAt: 0.1
+entity: individus
