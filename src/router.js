@@ -95,6 +95,12 @@ const router = new Router({
           title: 'Pensions alimentaires versées'
         }
       }, {
+        path: 'parents',
+        component: () => import(/* webpackChunkName: "parents" */ './views/Foyer/Parents.vue'),
+        meta: {
+          title: 'Vos parents'
+        }
+      }, {
         path: 'extra-pole-emploi',
         component: () => import(/* webpackChunkName: "extra-pole-emploi" */ './views/Foyer/PoleEmploi.vue'),
         meta: {

@@ -42,6 +42,9 @@ const steps = [
   name: 'Les pensions alimentaires versées',
   route: '/foyer/pensions-alimentaires',
 }, {
+  name: 'Vos parents',
+  route: '/foyer/parents',
+}, {
   name: 'Vos ressources fiscales',
   route: '/foyer/ressources/fiscales',
   isPast: function(store) {

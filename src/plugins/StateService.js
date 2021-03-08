@@ -69,10 +69,20 @@ function next(current, situation) {
         case '/foyer/logement':
             return { name: 'ressources/types', params: {role: 'demandeur', id: undefined}}
         case '/foyer/pensions-alimentaires':
+        {
+            if (situation.demandeur && situation.demandeur.enfant_a_charge) {
+                const periods = Object.keys(situation.demandeur.enfant_a_charge)
+                if (periods.length && situation.demandeur.enfant_a_charge[periods[0]]) {
+                    return '/foyer/parents'
+                }
+            }
+            return '/foyer/resultat'
+        }
         case '/foyer/extra-pole-emploi':
         case '/foyer/ressources/fiscales':
         case '/foyer/ressources/patrimoine':
         case '/foyer/resultat':
+        case '/foyer/parents':
             return '/foyer/resultat'
         case '/foyer/ressources/enfants':
         {
@@ -113,7 +123,7 @@ function next(current, situation) {
                 case 'ressources/montants':
                     return nextRessourceRoute(current, situation)
                 default:
-                    throw 'No route for ' + JSON.stringify({path: current.path, name: current.name, params: current.params})
+                    throw 'No route for ' + JSON.stringify((current && current.path) ? {path: current.path, name: current.name, params: current.params} : current)
             }
     }
 }
@@ -144,7 +154,7 @@ const StateService = {
     }
 
     Vue.prototype.$push = function(situation) {
-        this.$router.push(next(this.$route, situation))
+        this.$router.push(next(this.$route, situation || this.$store.state.situation))
     }
   }
 }
