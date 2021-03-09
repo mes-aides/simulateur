@@ -1,7 +1,7 @@
 label: bourse sur critères sociaux
 institution: enseignement_superieur
-description: TBD
-link: https://eurelien.fr/guide/action-et-aides-sociales
+description: La bourse d'enseignement supérieur sur critères sociaux (BCS) est accordée à l'étudiant qui a des difficultés matérielles pour poursuivre des études supérieures.
+link: https://www.service-public.fr/particuliers/vosdroits/F12214
 prefix: une
 type: float
 floorAt: 0.1

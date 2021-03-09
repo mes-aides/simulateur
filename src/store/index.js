@@ -7,9 +7,10 @@ import axios from 'axios'
 import moment from 'moment'
 import _ from 'lodash'
 
-import { computeAides, datesGenerator } from '../backend/lib/mes-aides'
-import { categoriesRnc, patrimoineTypes } from './constants/resources'
-import Institution from './lib/Institution'
+import { computeAides, datesGenerator } from '../../backend/lib/mes-aides'
+import { categoriesRnc, patrimoineTypes } from '../constants/resources'
+import Institution from '../lib/Institution'
+import communeModule from './modules/commune'
 
 let DATE_FIELDS = ['date_naissance', 'date_arret_de_travail', 'date_debut_chomage']
 
@@ -78,7 +79,7 @@ function defaultStore() {
     title: null,
     themeColor: null,
     inIframe: false,
-    iframeOrigin: null
+    iframeOrigin: null,
   }
 }
 
@@ -101,6 +102,9 @@ function restoreLocal() {
 }
 
 const store = new Vuex.Store({
+  modules: {
+    commune: communeModule
+  },
   state: defaultStore(),
   getters: {
     passSanityCheck: function(state) {
@@ -347,6 +351,13 @@ const store = new Vuex.Store({
         })
         .then(results => state.commit('setResults', results))
         .catch(error => state.commit('saveComputationFailure', error))
+    },
+    fetchCommune: function(state, id) {
+      state.commit('fetching')
+      return axios.get(`/api/situations/${id}`)
+        .then(result => result.data)
+        .then(payload => state.commit('reset', payload))
+        .catch(() => state.commit('saveAccessFailure'))
     },
     redirection: function(state, next) {
       state.commit('setMessage', 'Vous avez été redirigé·e sur la première page du simulateur. Vous pensez que c\'est une erreur&nbsp;? Contactez-nous&nbsp: <a href="mailto:equipe@mes-aides.org">equipe@mes-aides.org</a>.')
