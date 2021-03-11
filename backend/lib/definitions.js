@@ -13,7 +13,7 @@ var foyerFiscal = {
     taxe_fonciere_sur_avis: Object,
 };
 
-var ressources = _.concat(
+var allRessources = _.concat(
     ressources.ressourceTypes,
     ressources.categoriesRnc,
     ressources.patrimoineTypes)
@@ -60,7 +60,7 @@ var individu = Object.assign({
     tns_auto_entrepreneur_type_activite: { type: String, enum: ['achat_revente', 'bic', 'bnc'] },
     tns_autres_revenus_type_activite: { type: String, enum: ['achat_revente', 'bic', 'bnc'] },
     tns_micro_entreprise_type_activite: { type: String, enum: ['achat_revente', 'bic', 'bnc'] },
-}, ressources, specificSituationFields);
+}, allRessources, specificSituationFields);
 
 var statutOccupationLogementValues = [
     'primo_accedant',
@@ -107,4 +107,4 @@ module.exports = {
   individu,
   menage,
   situation
-} 
+};
