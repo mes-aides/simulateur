@@ -1,0 +1,9 @@
+label: Activ’emploi
+institution: departement_nord
+description: Activ’emploi est une aide financière directe que vous pouvez demander dans le
+  cadre d’une reprise d’emploi ou de formation, pour financer certaines dépenses.
+link: https://lenord.fr/jcms/prd1_630893/maisons-departementales-insertion-et-emploi
+prefix: ' '
+legend: maximum
+floorAt: 1
+entity: individus
