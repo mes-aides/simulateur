@@ -277,6 +277,11 @@ router.beforeEach((to, from, next) => {
     if (iframe != null) {
       store.commit('setIframeOrigin', null)
     }
+
+    const source = params.get("source") // Valider la valeur
+    if (source != null) {
+      store.commit('setSource', source)
+    }
   }
 
   if (store.state.iframeOrigin) {

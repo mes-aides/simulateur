@@ -299,6 +299,16 @@ export default {
     }
   },
   mounted: function () {
+
+    if (source == 'eure_et_loir') {
+      // récupère l'url vers laquelle on veut rediriger l'usager
+      this.$store.getters.fetchRepresentation('eure_et_loir_xxx')
+        .then(representation => {
+            // on envoie l'usager vers cet url
+            window.url = representation.destination.url
+        })
+      return // Gérer l'affichage du front
+    }
     if (this.$route.query && this.$route.query.situationId) {
       if (this.$store.state.situation._id !== this.$route.query.situationId) {
         this.$store.dispatch('fetch', this.$route.query.situationId)
