@@ -1,7 +1,7 @@
 <template>
   <form>
     <label class="form__group">
-      Montant de l'abattement annuel de <a href="https://www.assemblee-nationale.fr/dyn/15/amendements/3970/CION-SOC/AS1" target="_blank" rel="noopener">l'amendement n°51</a> (5000 € dans les exemples)&nbsp;:
+      Montant de l'abattement annuel de <a href="https://www.assemblee-nationale.fr/dyn/15/amendements/3970/CION-SOC/AS1" target="_blank" rel="noopener">l'amendement n°AS1</a> (5000 € dans les exemples)&nbsp;:
       <input type="number" v-select-on-click v-model.number="aah_abattement_forfaitaire_amendement">
     </label>
 
