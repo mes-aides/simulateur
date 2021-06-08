@@ -40,6 +40,6 @@ describe('openfisca result extraction', function() {
                 }
             }
         }, ['irpp'])
-        expect(result['1000'].irpp).toBe(10)
+        expect(result['1000'].irpp_).toBe(10)
     })
 })
