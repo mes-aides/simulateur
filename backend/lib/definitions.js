@@ -5,6 +5,7 @@ var ressources = require('../../app/js/constants/ressources');
 var famille = {
     parisien: Boolean,
     proprietaire_proche_famille: Boolean,
+    aah_abattement_forfaitaire_amendement: Number,
     rsa_isolement_recent: Boolean,
 };
 
@@ -44,7 +45,7 @@ var individu = Object.assign({
     date_debut_chomage: Date,
     date_naissance: Date,
     duree_possession_titre_sejour: Number,
-    echelon_bourse: Number,
+    bourse_criteres_sociaux_echelon: Number,
     enfant_a_charge: Object,
     enfant_place: Boolean,
     _firstName: String,
