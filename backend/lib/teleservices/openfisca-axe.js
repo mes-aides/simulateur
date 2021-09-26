@@ -47,12 +47,30 @@ function fetch(s) {
     }
 }
 
-OpenFiscaAxe.prototype.toExternal = function() {
+OpenFiscaAxe.prototype.toExternal = function(params) {
 
     var s = {
         source: this.situation,
         request: build(this.situation, variable)
     };
+    var is = Object.keys(s.request.familles)
+
+    var items = [
+        'aah_abattement_forfaitaire_amendement',
+        'aah_abattement_forfaitaire_enf',
+        'aah_niveau_smic_abattement_conjoint',
+        'aah_deconjugalise',
+        'aah_maj_conj',
+    ]
+    items.forEach(it => {
+        var v = parseFloat(params[it])
+        if (v) {
+            console.log(it, v)
+            is.forEach(i => {
+                s.request.familles[i][it] = { ETERNITY: v }
+            })
+        }
+    })
 
     return fetch(s)
         .then(s => {
@@ -65,7 +83,8 @@ OpenFiscaAxe.prototype.toExternal = function() {
                 names: [variable].concat(benefitIds),
                 data: jsonResults
             };
-        });
+        })
+        .catch()
 };
 
 module.exports = OpenFiscaAxe;

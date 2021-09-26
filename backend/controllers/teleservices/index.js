@@ -172,7 +172,7 @@ exports.verifyRequest = function(req, res, next) {
  * At the moment, the key/value pairs are hardcoded but it mimics the expected behavior.
  */
 exports.exportRepresentation = function(req, res) {
-    return Promise.resolve(createClass(req.teleservice, req.situation).toExternal())
+    return Promise.resolve(createClass(req.teleservice, req.situation).toExternal(req.query))
         .then(function(value) { return res.json(value); });
 };
 
