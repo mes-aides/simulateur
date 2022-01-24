@@ -20,10 +20,10 @@ html {
     height: 100%;
 
     .aj-home-hero {
-      width: 55%;
       display: flex;
       align-items: center;
       flex-wrap: wrap;
+      flex-shrink: 0;
 
       .aj-home-hero-content {
         h1 {
@@ -59,7 +59,6 @@ html {
       flex-direction: column;
       justify-content: flex-end;
       align-items: stretch;
-      flex-grow: 2;
 
       div {
         display: flex;
