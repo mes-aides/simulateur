@@ -6,11 +6,10 @@ const all = {
   animation: {
     delay: process.env.ANIMATION_DELAY || 300,
   },
-  baseURL: "https://mes-aides.1jeune1solution.beta.gouv.fr",
+  baseURL: "https://mes-aides.org",
   openfiscaURL: process.env.OPENFISCA_URL || "http://localhost:2000",
   openfiscaAxeURL: "https://betagouv.github.io/mes-aides-changent",
-  openfiscaPublicURL:
-    "https://openfisca.mes-aides.1jeune1solution.beta.gouv.fr",
+  openfiscaPublicURL: "https://openfisca.mes-aides.org",
   openfiscaTracerURL: "https://openfisca.github.io/tracer",
   netlifyContributionURL:
     process.env.NETLIFY_CONTRIBUTION_URL ||
