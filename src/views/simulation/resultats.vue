@@ -62,7 +62,7 @@
       <div class="aj-results-tools">
         <TrouverInterlocuteur />
         <OfflineResults
-          v-if="!resultatStatus.updating && !isEmpty(droits)"
+          v-if="false && !resultatStatus.updating && !isEmpty(droits)"
           :id="resultatsId"
         />
         <Feedback />
