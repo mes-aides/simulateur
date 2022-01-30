@@ -182,7 +182,7 @@ jobs:
       - run:
           name: Deploy on production
           command: |
-            ssh root@solstice.mes-aides.1jeune1solution.beta.gouv.fr
+            ssh root@kuli.mes-aides.org
 
 workflows:
   version: 2
