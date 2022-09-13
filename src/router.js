@@ -33,7 +33,9 @@ const router = createRouter({
     {
       path: "/simulation",
       name: "simulation",
-      redirect: "/simulation/individu/demandeur/date_naissance",
+      redirect: () => {
+        return store.getAllSteps[1].path
+      },
       component: context.Simulation,
       meta: {
         headTitle: `Ma simulation sur le simulateur d'aides ${context.name}`,
@@ -475,6 +477,14 @@ router.afterEach((to) => {
       title.focus()
     }
   })
+})
+
+router.afterEach((to) => {
+  if (window?.ATInternet?.Tracker?.Tag) {
+    var tag = new window.ATInternet.Tracker.Tag()
+    tag.page.set({ name: to.path })
+    tag.dispatch()
+  }
 })
 
 export default router
