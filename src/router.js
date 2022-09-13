@@ -34,6 +34,7 @@ const router = createRouter({
       path: "/simulation",
       name: "simulation",
       redirect: () => {
+        const store = useStore()
         return store.getAllSteps[1].path
       },
       component: context.Simulation,
