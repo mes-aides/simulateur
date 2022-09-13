@@ -36,9 +36,16 @@
 </template>
 
 <script>
+import { useStore } from "@/stores"
+
 export default {
   name: "BaseLayout",
   components: {},
+  setup() {
+    return {
+      store: useStore(),
+    }
+  },
   created() {
     this.$router.isReady().then(() => {
       if (this.$route.query.debug === "parcours") {

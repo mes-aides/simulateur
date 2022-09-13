@@ -42,6 +42,8 @@
 </template>
 
 <script>
+import { useStore } from "@/stores"
+
 import Institution from "@/lib/institution"
 import reduce from "lodash/reduce"
 import size from "lodash/size"
@@ -50,7 +52,7 @@ import mapValues from "lodash/mapValues"
 
 export default {
   name: "Home",
-  data: () => {
+  setup() {
     let value = {}
     const types = ["prestationsNationales", "partenairesLocaux"]
     types.forEach(function (type) {
@@ -87,7 +89,11 @@ export default {
       },
       0)
     })
-    return value
+    return {
+      store: useStore(),
+      context: process.env.VUE_APP_CONTEXT,
+      ...value,
+    }
   },
   computed: {
     hasExistingSituation: function () {
