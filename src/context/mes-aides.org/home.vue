@@ -2,7 +2,7 @@
   <div id="homepage">
     <div class="container">
       <div class="aj-home-hero">
-        <div class="aj-home-hero-content">
+        <div class="aj-home-hero-content" data-testid="home-hero-content">
           <h1>
             <span class="hightlight"
               >Évaluez vos droits à<br />plus de 20 aides
@@ -24,6 +24,7 @@
             <button
               v-analytics="{ action: ctaLabel, category: 'Home' }"
               :class="`button ${ctaSize} primary`"
+              data-testid="new-simulation"
               @click="newSituation()"
             >
               {{ ctaLabel }}
