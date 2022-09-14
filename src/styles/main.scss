@@ -10,18 +10,18 @@ $screen-xs-max: 768px-1;
 $screen-smaller-than-mobile: 399px;
 
 :root {
-  --theme-border-radius: 25px;
-  --theme-primary: #526ab6;
-  --theme-primary-light: #4b5bd0;
-  --theme-primary-lighter: #e2e5fb;
+  --theme-border-radius: 3px;
   --theme-dark-text: #26353f;
-  --light-grey: #c4c4c4;
   --darkest-grey: #4f4f4f;
-  --green: #169b62;
-  --light-green: #51d27d;
-  --lighter-green: #eefbf2;
-  --lighter-green-shadow: #2fac66;
+  --green: #40ceb3;
+  --light-green: #8ee2d2; //40ceb3;//#51d27d;
+  --lighter-green: #f6fdfb; //#eefbf2;
+  --lighter-green-shadow: #8ee2d2; //#f6fdfb;//#2fac66;
   --space-xs: 20px;
+}
+
+body {
+  background-color: #f2f5f9;
 }
 
 @font-face {

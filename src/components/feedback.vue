@@ -94,6 +94,7 @@
       </div>
     </small>
     <a
+      v-if="false"
       v-analytics="{
         action: 'Parcours',
         category: 'Je donne mon avis',

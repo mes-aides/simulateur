@@ -15,8 +15,8 @@ process.env.VUE_APP_BENEFIT_COUNT = benefits.all.filter(
   (benefit) => !benefit.private
 ).length
 process.env.VUE_APP_MATOMO_ID = matomo.id
-process.env.VUE_APP_CONTACT_EMAIL = "aides-jeunes@beta.gouv.fr"
-process.env.VUE_APP_CONTEXT_NAME = "1jeune1solution"
+process.env.VUE_APP_CONTACT_EMAIL = "equipe@mes-aides.org"
+process.env.VUE_APP_CONTEXT_NAME = "mes-aides.org"
 process.env.VUE_APP_BASE_URL = baseURL
 process.env.VUE_APP_CONTEXT = process.env.CONTEXT
 process.env.VUE_APP_PR_URL = `${process.env.REPOSITORY_URL}/pull/${process.env.REVIEW_ID}`

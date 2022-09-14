@@ -1,0 +1,36 @@
+import Home from "./home.vue"
+import BaseLayout from "./base-layout.vue"
+import Simulation from "@/views/simulation.vue"
+
+export default {
+  Home,
+  BaseLayout,
+  Simulation,
+  name: "mes-aides.org",
+  routes: [
+    {
+      path: "/a-propos",
+      name: "a-propos",
+      component: () =>
+        import(
+          /* webpackChunkName: "static" */ "@/context/mes-aides.org/views/a-propos.vue"
+        ),
+    },
+    {
+      path: "/ameliorer",
+      name: "ameliorer",
+      component: () =>
+        import(
+          /* webpackChunkName: "static" */ "@/context/mes-aides.org/views/ameliorer.vue"
+        ),
+    },
+    {
+      path: "/liens-utiles",
+      name: "liens-utiles",
+      component: () =>
+        import(
+          /* webpackChunkName: "static" */ "@/context/mes-aides.org/views/liens-utiles.vue"
+        ),
+    },
+  ],
+}
