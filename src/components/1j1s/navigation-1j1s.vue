@@ -12,14 +12,14 @@
         class="fr-nav__item"
         :class="{ 'fr-nav__item--right': element?.alignRight }"
       >
-        <a
-          v-if="!element.children"
-          class="fr-nav__link"
-          :href="`${domain}${element.link}`"
+        <router-link
           :aria-current="element.active || null"
-          :title="element.active ? 'Onglet actif' : null"
-          >{{ element.label }}</a
+          v-if="!element.children"
+          :to="element.link"
+          class="fr-nav__link"
         >
+          {{ element.label }}
+        </router-link>
         <button
           v-if="element.children"
           :aria-current="element.active || null"
@@ -54,12 +54,13 @@
                 :data-submenu="!category.link"
               >
                 <h2 class="fr-mega-menu__category">
-                  <a
+                  <router-link
                     v-if="category.link"
+                    :to="subelement.link"
                     class="fr-nav__link"
-                    :href="`${domain}${category.link}`"
-                    >{{ category.label }}</a
                   >
+                    {{ subcategory.label }}
+                  </router-link>
                   <span v-else class="fr-nav__link">{{ category.label }}</span>
                 </h2>
                 <p v-if="category.legend" class="fr-p-2w">{{
@@ -69,12 +70,11 @@
                   <li
                     v-for="subcategory in category.children"
                     :key="subcategory.label"
-                    ><a
-                      :href="`${domain}${subcategory.link}`"
-                      class="fr-nav__link"
-                      >{{ subcategory.label }}</a
-                    ></li
                   >
+                    <router-link :to="subelement.link" class="fr-nav__link">
+                      {{ subcategory.label }}
+                    </router-link>
+                  </li>
                 </ul>
               </div>
             </div>
@@ -92,13 +92,9 @@
               :key="subelement.label"
               class="fr-nav__item"
             >
-              <a
-                class="fr-nav__link"
-                :href="`${domain}${subelement.link}`"
-                :aria-current="subelement.active || null"
-                :title="subelement.active ? 'Sous-onglet actif' : null"
-                >{{ subelement.label }}</a
-              >
+              <router-link :to="subelement.link" class="fr-nav__link">
+                {{ subelement.label }}
+              </router-link>
             </li>
           </ul>
         </div>
@@ -117,102 +113,13 @@ function escapeKeyHandler(event) {
     event.target.previousSibling.setAttribute("aria-expanded", false)
   }
 }
-const domain = "https://www.1jeune1solution.gouv.fr"
 const navigation = [
-  { label: "Accueil", link: "/" },
   {
-    label: "Offres",
+    label: "Menu",
     children: [
-      { label: "Emplois", link: "/emplois" },
-      { label: "Stages", link: "/stages" },
-      { label: "Contrats d’alternance", link: "/apprentissage" },
-      { label: "Jobs étudiants", link: "/jobs-etudiants" },
-      { label: "Expérience en Europe", link: "/europe" },
-    ],
-  },
-  {
-    label: "Formations et orientation",
-    children: [
-      { label: "Formations initiales", link: "/formations-initiales" },
-      {
-        label: "Formations en apprentissage",
-        link: "/formations/apprentissage",
-      },
-      { label: "Découvrir les métiers", link: "/decouvrir-les-metiers" },
-      { label: "Participer à des évènements", link: "/evenements" },
-      {
-        label: "Découvrir et trouver sa voie avec l’apprentissage",
-        link: "/choisir-apprentissage",
-      },
-    ],
-  },
-  {
-    label: "Engagement",
-    children: [
-      { label: "Bénévolat", link: "/benevolat" },
-      { label: "Service civique", link: "/service-civique" },
-    ],
-  },
-  {
-    label: "Logement",
-    children: [
-      { label: "Annonces", link: "/logements/annonces" },
-      {
-        label: "Aides financières au logement",
-        link: "/logements/aides-logement",
-      },
-      { label: "Découvrir tous nos conseils", link: "/logements/conseils" },
-    ],
-  },
-  {
-    label: "Accompagnement",
-    children: [
-      { label: "Contrat Engagement Jeune", link: "/contrat-engagement-jeune" },
-      { label: "Échanger avec un mentor", link: "/mentorat" },
-      {
-        label: "Trouver une structure d'accompagnement",
-        link: "/accompagnement",
-      },
-      {
-        label: "Entreprendre : financements, aides et accompagnements",
-        link: "/entreprendre",
-      },
-    ],
-  },
-  {
-    label: "Aides et outils",
-    active: true,
-    children: [
-      { label: "Mes aides financières", link: "/mes-aides", active: true },
-      { label: "Je crée son CV personnalisé", link: "/creer-mon-cv" },
-    ],
-  },
-  {
-    label: "Je suis employeur",
-    alignRight: true,
-    children: [
-      {
-        label: "Rejoindre la mobilisation",
-        link: "/les-entreprises-s-engagent",
-        legend: "Découvrez des services faits pour vous !",
-      },
-      {
-        children: [
-          { label: "Je recrute", link: "/je-recrute" },
-          { label: "Je deviens mentor", link: "/je-deviens-mentor" },
-          { label: "Je propose des immersions", link: "/immersions" },
-          {
-            label: "Je forme les jeunes grâce à l'emploi",
-            link: "/je-recrute-afpr-poei",
-          },
-        ],
-        label: "Recruter et agir pour les jeunes",
-      },
-      {
-        label: "Découvrir les mesures employeurs",
-        link: "/mesures-employeurs",
-      },
-      { label: "Accéder à mon espace", link: "/mon-espace" },
+      { label: "Obtenir de l'aide", link: "/liens-utiles" },
+      { label: "Qui sommes nous ?", link: "/a-propos" },
+      { label: "Comment nous aider ?", link: "/ameliorer" },
     ],
   },
 ]

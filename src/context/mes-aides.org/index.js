@@ -4,7 +4,7 @@ import Simulation from "@/views/simulation.vue"
 
 export default {
   Home,
-  BaseLayout,
+  Layout: BaseLayout,
   Simulation,
   name: "mes-aides.org",
   routes: [

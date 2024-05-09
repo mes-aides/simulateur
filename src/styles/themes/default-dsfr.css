@@ -3,7 +3,7 @@
   --input-outline: #0a76f6;
 
   /* buttons */
-  --main-color: #000091;
+  --main-color: #0053b3;
   --main-color-hover: #1212ff;
   --main-color-active: #2323ff;
   --main-btn-text-color: #fff;
@@ -14,7 +14,7 @@
     home colored background
     home main text
     */
-  --secondary-color: #417dc4;
+  --secondary-color: #0053b3;
 
   /* en savoir plus text */
   --info-main-color: #0063cb;
@@ -26,4 +26,20 @@
 
   /* Font */
   --font-family: inherit;
+
+  --border-radius: 5px;
+  --aj-green: #40ceb3;
+  --success-975-75: #8ee2d2;
+}
+
+body {
+  background-color: #f2f5f9;
+}
+
+.fr-header__body-row {
+  justify-content: space-between;
+}
+
+.aj-hero-section--img {
+  max-width: 100%;
 }

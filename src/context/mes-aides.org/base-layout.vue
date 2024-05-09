@@ -1,117 +1,85 @@
 <template>
-  <header class="navbar" role="navigation">
-    <div class="container navbar__container">
-      <div class="navbar__container">
-        <router-link id="logo" to="/" class="navbar__home">
-          <img
-            class="navbar__logo"
-            src="@/../public/mes-aides.org/img/logo.svg"
-            alt="Logo de Mes-Aides.org"
-          />
-        </router-link>
-      </div>
-      <nav>
-        <ul class="nav__links">
-          <li class="nav__item">
-            <router-link to="/liens-utiles">Obtenir de l'aide</router-link>
-          </li>
-          <li class="nav__item">
-            <router-link to="/a-propos">Qui sommes nous&nbsp;?</router-link>
-          </li>
-          <li class="nav__item"
-            ><router-link to="/ameliorer">
-              Comment nous aider&nbsp;?
-            </router-link></li
+  <div class="fr-skiplinks">
+    <nav
+      ref="skipLinks"
+      class="fr-container"
+      role="navigation"
+      aria-label="Accès rapide"
+    >
+      <ul class="fr-skiplinks__list">
+        <li>
+          <router-link
+            class="fr-link"
+            :to="{ hash: '#main' }"
+            aria-current="none"
+            >Contenu</router-link
           >
-        </ul>
-      </nav>
-    </div>
-  </header>
-
-  <div class="aj-website">
-    <div class="aj-website-content">
+        </li>
+        <li>
+          <router-link
+            class="fr-link"
+            :to="{ hash: '#navigation' }"
+            aria-current="none"
+            >Menu</router-link
+          >
+        </li>
+      </ul>
+    </nav>
+  </div>
+  <div class="aj-page--full-height">
+    <header role="banner" class="fr-header">
+      <div class="fr-header__body">
+        <div class="fr-container">
+          <div class="fr-header__body-row">
+            <router-link id="logo" to="/" class="navbar__home">
+              <img
+                class="navbar__logo"
+                src="@/assets/images/mes-aides.org/logo.svg"
+                alt="Logo de Mes-Aides.org"
+              />
+            </router-link>
+            <Navigation />
+          </div>
+        </div>
+      </div>
+      <div
+        id="modal-499"
+        class="fr-header__menu fr-modal"
+        aria-labelledby="button-500"
+      >
+        <div class="fr-container">
+          <button
+            class="fr-btn--close fr-btn"
+            aria-controls="modal-499"
+            title="Fermer"
+          >
+            Fermer
+          </button>
+          <div class="fr-header__menu-links"> </div>
+        </div>
+      </div>
+    </header>
+    <main
+      id="main"
+      ref="main"
+      role="main"
+      class="fr-container fr-container--fluid aj-main-container"
+      tabindex="-1"
+    >
       <slot />
-    </div>
+    </main>
   </div>
 </template>
 
-<script>
+<script lang="ts">
+import Navigation from "@/components/1j1s/navigation-1j1s.vue"
+import layoutRouteMixin from "@/mixins/layout-route-mixin.js"
+
 export default {
   name: "BaseLayout",
-  components: {},
-  created() {
-    this.$router.isReady().then(() => {
-      if (this.$route.query.debug === "parcours") {
-        this.$store.dispatch("setDebug", true)
-      }
-    })
+  mixins: [layoutRouteMixin],
+  components: {
+    Navigation,
   },
 }
 </script>
-
-<style scoped lang="scss">
-.navbar__logo {
-  height: 80%;
-  margin-left: 1em;
-}
-
-.logo.partenaire {
-  max-height: 30px;
-}
-
-.logo.mesaides {
-  position: relative;
-  top: 5px;
-  left: 2px;
-}
-
-.logo.incubateur {
-  display: flex;
-}
-
-.navbar__container {
-  flex-wrap: nowrap;
-  -ms-flex-direction: row;
-  flex-direction: row;
-}
-#logo:hover,
-#logo:focus {
-  opacity: 1;
-  background-color: unset;
-}
-
-footer {
-  display: flex;
-
-  flex-direction: row;
-  margin: 1em;
-  justify-content: space-between;
-
-  > div {
-    display: flex;
-    flex-direction: column;
-    padding: 1em 0em;
-  }
-}
-
-@media (max-width: 760px) {
-  nav {
-    display: none;
-  }
-}
-
-@media (max-width: 950px) {
-  .large_screen_text {
-    display: none;
-  }
-}
-
-@media (min-width: 761px) {
-  .navbar__container {
-    padding: 1em 0em;
-  }
-  footer {
-    display: none;
-  }
-}
-</style>

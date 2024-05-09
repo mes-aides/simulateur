@@ -5,7 +5,7 @@ import mesAidesOrgContext from "./mes-aides.org"
 const contexts = {
   [baseContext.name]: baseContext,
   [mesAidesContext.name]: mesAidesContext,
-  [mesAidesOrgContext.name]: mesAidesOrgContext
+  [mesAidesOrgContext.name]: mesAidesOrgContext,
 }
 
 const context = contexts[process.env.VITE_CONTEXT_NAME]

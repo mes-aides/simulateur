@@ -1,114 +1,118 @@
 <template>
-  <div id="homepage">
-    <div class="container">
-      <div class="aj-home-hero">
-        <div class="aj-home-hero-content">
-          <h1>
-            <span class="hightlight"
-              >Évaluez vos droits à<br />plus de 20 aides
-            </span>
-            <br />en moins de 5 minutes.
-          </h1>
-          <div class="aj-home-hero-buttons-wrapper">
-            <button
-              v-if="hasExistingSituation"
-              v-analytics="{
-                action: 'Reprendre ma simulation',
-                category: 'Home',
-              }"
-              :class="`button ${ctaSize} secondary`"
-              @click="next()"
-            >
-              Reprendre ma simulation
-            </button>
-            <button
-              v-analytics="{ action: ctaLabel, category: 'Home' }"
-              :class="`button ${ctaSize} primary`"
-              @click="newSituation()"
-            >
-              {{ ctaLabel }}
-            </button>
-          </div>
-        </div>
-      </div>
-      <div class="aj-home-illustration">
-        <img
-          src="@/../public/mes-aides.org/img/illustration.svg"
-          alt="Illustration d'une famille"
-        />
-      </div>
+  <div class="fr-grid-row aj-hero-section">
+    <div
+      class="aj-hero-section--text fr-col fr-col-12 fr-col-md-6 fr-col--middle fr-py-6w fr-py-md-12w fr-px-4w"
+      data-testid="home-hero-content"
+    >
+      <h1>
+        <span class="aj-hero-section--text-highlight"
+          >Évaluez vos droits à <br />{{ benefitsNumber }} aides
+        </span>
+        <br />en moins de 5 minutes.
+      </h1>
+      <p class="fr-text--lg fr-mb-6w">
+        Avant de démarrer la simulation de vos aides, pensez à vous munir de vos
+        ressources et de celles de vos parents si vous êtes encore à leur
+        charge.
+      </p>
+      <ul class="fr-btns-group">
+        <li v-if="hasExistingSituation">
+          <button
+            v-analytics="{
+              action: eventActionResume,
+              category: eventCategoryHome,
+            }"
+            class="fr-btn"
+            @click="next()"
+          >
+            Reprendre ma simulation
+          </button>
+        </li>
+        <li>
+          <button
+            v-if="hasExistingSituation"
+            v-analytics="{ action: ctaLabel, category: eventCategoryHome }"
+            class="fr-btn fr-btn--secondary"
+            data-testid="new-simulation"
+            @click="newSituation()"
+          >
+            {{ ctaLabel }}
+          </button>
+          <router-link
+            v-else
+            v-analytics="{ action: ctaLabel, category: eventCategoryHome }"
+            class="fr-btn"
+            data-testid="new-simulation"
+            to="/simulation/individu/demandeur/date_naissance"
+            @click="newSituation()"
+          >
+            {{ ctaLabel }}
+          </router-link>
+        </li>
+      </ul>
+      <p class="fr-text--center">
+        <router-link to="/aides">
+          Accéder à la liste complète des aides
+        </router-link>
+      </p>
+    </div>
+    <div class="fr-col fr-col-6 fr-col--bottom fr-hidden fr-unhidden-md">
+      <img
+        src="@/assets/images/mes-aides.org/illustration.svg"
+        alt="Illustration d'une famille"
+        class="aj-hero-section--img"
+      />
     </div>
   </div>
 </template>
 
-<script>
-import Institution from "@/lib/institution"
-import reduce from "lodash/reduce"
-import size from "lodash/size"
-import filter from "lodash/filter"
-import mapValues from "lodash/mapValues"
+<script lang="ts">
+import { useStore } from "@/stores/index.js"
+import { EventAction, EventCategory } from "@lib/enums/event.js"
 
 export default {
   name: "Home",
-  data: () => {
-    let value = {}
-    const types = ["prestationsNationales", "partenairesLocaux"]
-    types.forEach(function (type) {
-      let providersWithoutPrivatePrestations = mapValues(
-        Institution[type],
-        function (provider) {
-          provider = { ...provider }
-          provider.prestations = reduce(
-            provider.prestations,
-            function (prestations, prestation, name) {
-              if (!prestation.private) {
-                prestations[name] = prestation
-              }
-
-              return prestations
-            },
-            {}
-          )
-          return provider
-        }
-      )
-
-      value[type] = filter(
-        providersWithoutPrivatePrestations,
-        function (provider) {
-          return size(provider.prestations)
-        }
-      )
-      value[type + "Count"] = Object.keys(value[type]).reduce(function (
-        total,
-        provider
-      ) {
-        return total + size(value[type][provider].prestations)
-      },
-      0)
-    })
-    return value
+  setup() {
+    return {
+      store: useStore(),
+      context: process.env.VITE_CONTEXT,
+    }
+  },
+  data() {
+    return {
+      eventCategoryHome: EventCategory.Home,
+      eventActionResume: EventAction.ReprendreMaSimulation,
+    }
   },
   computed: {
-    hasExistingSituation: function () {
-      return this.$store.getters.passSanityCheck
+    hasExistingSituation() {
+      return this.store.passSanityCheck
     },
-    ctaLabel: function () {
+    ctaLabel() {
       return this.hasExistingSituation
         ? "Commencer une nouvelle simulation"
-        : "Évaluer mes droits"
+        : "Je commence"
     },
-    ctaSize: function () {
+    ctaSize() {
       return this.hasExistingSituation ? "large" : "xlarge"
+    },
+    benefitsNumber() {
+      return process.env.VITE_BENEFIT_COUNT
+        ? process.env.VITE_BENEFIT_COUNT
+        : "plus de 700"
     },
   },
   methods: {
-    newSituation: function () {
-      this.$store.dispatch("clear", this.$route.query.external_id)
+    newSituation() {
+      this.store.clear(this.$route.query.external_id)
       this.next()
     },
-    next: function () {
-      this.$store.dispatch("verifyBenefitVariables")
+    next() {
+      this.store.setOpenFiscaParameters()
+      // we only want to look for benefit variables in preview mode
+      if (process.env.VITE_CONTEXT !== "production") {
+        this.store.verifyBenefitVariables()
+      }
       this.$push()
     },
   },

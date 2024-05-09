@@ -23,6 +23,8 @@
   --tool-link-background-color-hover: var(--background-raised-grey-hover);
 
   --sidemenu-active-link-text-color: var(--main-color);
+
+  --aj-green: #218d4b;
 }
 
 .fr-header__tools-links .fr-btn {
@@ -223,7 +225,7 @@ textarea {
     transparent 50%,
     transparent 100%
   );
-  color: #218d4b;
+  color: var(--aj-green);
 }
 
 .aj-hero-section--img {
