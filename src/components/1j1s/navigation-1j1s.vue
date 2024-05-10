@@ -13,8 +13,8 @@
         :class="{ 'fr-nav__item--right': element?.alignRight }"
       >
         <router-link
-          :aria-current="element.active || null"
           v-if="!element.children"
+          :aria-current="element.active || null"
           :to="element.link"
           class="fr-nav__link"
         >

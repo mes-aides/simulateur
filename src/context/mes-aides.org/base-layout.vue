@@ -77,9 +77,9 @@ import layoutRouteMixin from "@/mixins/layout-route-mixin.js"
 
 export default {
   name: "BaseLayout",
-  mixins: [layoutRouteMixin],
   components: {
     Navigation,
   },
+  mixins: [layoutRouteMixin],
 }
 </script>
