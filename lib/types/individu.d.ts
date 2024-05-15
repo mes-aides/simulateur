@@ -19,6 +19,7 @@ export interface Individu {
   handicap?: boolean
   taux_incapacite?: number
   _interetsAidesVelo?: Velo[]
+  _dsn?: string
 }
 
 export interface IndividuGenerator {

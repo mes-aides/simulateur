@@ -181,6 +181,10 @@ export function generateSituation(
     }
   })
 
+  if (simulation.answers.all[0].fieldName == "_dsn") {
+    situation.demandeur._dsn = simulation.answers.all[0]
+  }
+
   if (simulation.ressourcesFiscales) {
     const fiscalYear = dates.fiscalYear.id
     Object.keys(simulation.ressourcesFiscales).forEach((individuId) => {

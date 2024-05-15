@@ -133,6 +133,12 @@ export const CONDITION_STRATEGY: Conditions = {
       },
     ],
   },
+  dsn: {
+    test: (_, { situation }) => {
+      console.log(situation.demandeur)
+      return situation.demandeur._dsn
+    },
+  },
   formation_sanitaire_social: {
     test: (_, { situation }: { situation: Situation }) => {
       return (

@@ -1,0 +1,14 @@
+label: aide de démonstration de l’accès à la prime d’activité via les données DSN
+institution: etat
+description:
+  Vous avez besoin d'aide pour comprendre votre résultat de simulation
+  et effectuer vos démarches ? Prenez un rendez-vous pour être rappelé au téléphone
+  par le Centre Communal d’Action Sociale de Beaumont-en-Verdunois.
+prefix: l’
+conditions_generales:
+  - type: dsn
+type: bool
+periodicite: autre
+teleservicePrefill: dsn
+link: http://localhost:3001
+top: -2

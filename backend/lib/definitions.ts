@@ -86,6 +86,7 @@ export const ANSWER_FIELD_NAMES = [
   ...FRANCE_CONNECT_FIELD_NAMES,
   ...LEGACY_FIELD_NAMES,
   "pivot-data",
+  "_dsn",
 ]
 
 export const ANSWER_BASIC_IDS = [undefined, "demandeur", "conjoint", "enfants"]

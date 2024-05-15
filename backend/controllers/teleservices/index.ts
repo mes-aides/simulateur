@@ -11,6 +11,7 @@ import OpenFiscaAxe from "../../lib/teleservices/openfisca-axe.js"
 import OpenFiscaResponse from "../../lib/teleservices/openfisca-response.js"
 import OpenFiscaTracer from "../../lib/teleservices/openfisca-tracer.js"
 import PNDS from "../../lib/teleservices/pnds.js"
+import Simulation from "../../lib/teleservices/simulation.js"
 import dayjs from "dayjs"
 import "dayjs/locale/fr.js"
 
@@ -24,6 +25,15 @@ const teleservices = [
     destination: {
       label: "Transférer les informations",
       url: "https://agrums.acadis.re/agrum/analyse-des-droits/{{token}}",
+    },
+  },
+  {
+    name: "dsn",
+    class: Simulation,
+    public: true,
+    destination: {
+      label: "Transférer les informations",
+      url: "http://localhost:3001/simulation/{{token}}",
     },
   },
   {
