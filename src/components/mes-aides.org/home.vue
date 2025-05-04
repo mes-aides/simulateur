@@ -11,7 +11,6 @@ const isIframe = computed(() => iframeStore.inIframe)
 <template>
   <div data-testid="home-page">
     <HeroSection />
-    <span v-if="!isIframe">
-    </span>
+    <span v-if="!isIframe"> </span>
   </div>
 </template>

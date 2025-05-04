@@ -47,7 +47,6 @@
 
 <script lang="ts">
 import HeaderMesAides from "@/components/mes-aides.org/header.vue"
-import Footer1J1S from "@/components/1j1s/footer-1j1s.vue"
 import layoutRouteMixin from "@/mixins/layout-route-mixin.js"
 import NavigationMesAides from "@/components/mes-aides.org/navigation.vue"
 

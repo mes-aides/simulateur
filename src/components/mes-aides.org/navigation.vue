@@ -11,9 +11,7 @@
           <a href="/" class="fr-nav__link">Accueil</a>
         </li>
         <li class="fr-nav__item">
-          <a
-            href="questions-frequentes"
-            class="fr-nav__link"
+          <a href="questions-frequentes" class="fr-nav__link"
             >Questions fréquentes</a
           >
         </li>
