@@ -5,11 +5,12 @@ import Simulation from "@/components/mes-aides.org/simulation.vue"
 export default {
   Home,
   routes: [
-  {
-    path: "/iframe",
-    name: "iframe",
-    component: () => import("@/views/iframe.vue"),
-  },],
+    {
+      path: "/iframe",
+      name: "iframe",
+      component: () => import("@/views/iframe.vue"),
+    },
+  ],
   name: "mes-aides.org",
   Layout: MesAidesLayout,
   Simulation,
