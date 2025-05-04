@@ -17,7 +17,7 @@ import { nodeProfilingIntegration } from "@sentry/profiling-node"
  * - OPENFISCA_PUBLIC_ROOT_URL
  */
 
-const contextName = process.env.CONTEXT_NAME || "1jeune1solution"
+const contextName = process.env.CONTEXT_NAME || "mes-aides.org"
 
 const config: Configuration = {
   env: process.env.NODE_ENV || "development",
