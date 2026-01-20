@@ -1,6 +1,7 @@
 <template>
   <div>
     <nav
+      id="navigation"
       class="fr-nav"
       role="navigation"
       aria-label="Menu principal"

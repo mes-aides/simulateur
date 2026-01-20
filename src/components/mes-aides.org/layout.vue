@@ -40,9 +40,6 @@
       <slot />
     </main>
   </div>
-  <div ref="footer" tabindex="-1">
-    <Footer1J1S />
-  </div>
 </template>
 
 <script lang="ts">
