@@ -20,10 +20,10 @@ const teleservices = [
   {
     name: "ccas_saint_louis_preprod",
     class: OpenFiscaResponse,
-    public: false,
+    public: true,
     destination: {
       label: "Transférer les informations",
-      url: "https://agrums.acadis.re/agrum/analyse-des-droits/{{token}}",
+      url: "https://dev.maloia.io/noutdroits/simulator/result/{{token}}",
     },
   },
   {
