@@ -31,7 +31,9 @@ export function getNextStep(
   allSteps: StepStrict[],
 ): StepStrict {
   const currentPath = currentRoute.path || currentRoute.fullPath
-  const currentIndex = allSteps.findIndex((step) => currentPath.endsWith(step.path))
+  const currentIndex = allSteps.findIndex((step) =>
+    currentPath.endsWith(step.path),
+  )
 
   if (currentIndex === -1 && currentPath !== "/") {
     throw new Error(`Current path ${currentPath} not found in all steps array`)

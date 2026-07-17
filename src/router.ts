@@ -8,7 +8,6 @@ import ABTestingService from "@/plugins/ab-testing-service.js"
 
 import ThemeService from "./plugins/theme-service.js"
 
-
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes: [
@@ -51,10 +50,10 @@ const router = createRouter({
       meta: {
         headTitle: `Ma simulation sur le simulateur d'aides ${context.name}`,
       },
-      beforeEnter(to, from) {
-        console.log({t: this, to, from})
+      beforeEnter(to) {
         if (!to.params.fieldName) {
-          return `${to.params.theme}/simulation/individu/demandeur/date_naissance`
+          const theme = to.params.theme || ""
+          return `${theme}/simulation/individu/demandeur/date_naissance`
         } else {
           return
         }
@@ -517,20 +516,28 @@ router.beforeEach((to, from, next) => {
     }
   }
 
-  //
-  console.log(ThemeService.options)
-  const styleElement = document.createElement("style")
-  //styleElement.textContent = defaultTheme.value
-  document.head.appendChild(styleElement)
-
-  const match = ThemeService.options.find((option) => option.label === to.params.theme)
-  if (!match) {
-    //Sentry.captureMessage(`Invalid theme label ${to.params.theme}`)
-  } else {
-    styleElement.textContent = match.value
+  const styleId = "theme-style-node"
+  const existingStyleElement = document.getElementById(styleId)
+  if (!existingStyleElement) {
+    const styleElement = document.createElement("style")
+    styleElement.id = styleId
+    document.head.appendChild(styleElement)
   }
 
-  //
+  if (to.params.theme) {
+    const styleElement = document.getElementById(styleId)
+    if (to.params.theme != from.params.theme) {
+      const match = ThemeService.options.find(
+        (option) => option.label === to.params.theme,
+      )
+      if (!match) {
+        // Sentry.captureMessage(`Invalid theme label ${to.params.theme}`)
+      } else {
+        styleElement.textContent = match.value
+      }
+    }
+  }
+
   next()
 })
 

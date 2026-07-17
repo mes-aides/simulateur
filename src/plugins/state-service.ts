@@ -18,7 +18,6 @@ const StateService = {
       store.updateCurrentAnswers(nextStep.path)
       const next = nextStep.path
       let fullyQualifiedNext
-      console.log(this.$route)
       if (this.$route.params.theme) {
         fullyQualifiedNext = `/${this.$route.params.theme}${next}`
       } else {

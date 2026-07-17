@@ -43,7 +43,7 @@ function next() {
   if (context !== "production") {
     store.verifyOpenfiscaBenefitVariables()
   }
-  router.push({ name: "simulation", params: { theme: "arc-en-ciel"} })
+  router.push({ name: "simulation" })
 }
 </script>
 
