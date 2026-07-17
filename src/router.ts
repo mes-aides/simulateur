@@ -16,6 +16,22 @@ const router = createRouter({
       component: context.Home,
     },
     {
+      path: "/contribuer",
+      name: "contribuer",
+      component: () => import("./views/contribuer/add-benefit.vue"),
+      meta: {
+        headTitle: `Proposer une nouvelle aide sur ${context.name}`,
+      },
+    },
+    {
+      path: "/contribuer/institution",
+      name: "contribuer-institution",
+      component: () => import("./views/contribuer/institution.vue"),
+      meta: {
+        headTitle: `Ajouter une institution sur ${context.name}`,
+      },
+    },
+    {
       path: "/callback",
       name: "callback",
       component: () => import("./views/france-connect-callback.vue"),
@@ -233,6 +249,14 @@ const router = createRouter({
       path: "/aides",
       name: "liste-aides",
       component: () => import("./views/liste-aides.vue"),
+      meta: {
+        headTitle: `Toutes les aides du simulateur ${context.name}`,
+      },
+    },
+    {
+      path: "/contribuer/aides",
+      name: "contribuer-liste-aides",
+      component: () => import("./views/contribuer/benefits-list.vue"),
       meta: {
         headTitle: `Toutes les aides du simulateur ${context.name}`,
       },

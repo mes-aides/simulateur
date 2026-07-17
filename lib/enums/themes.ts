@@ -5,6 +5,7 @@ export enum Theme {
   Soliguide = "soliguide",
   MesAidesOrg = "mes-aides-org",
   ArcEnCiel = "arc-en-ciel",
+  VilleDeVannes = "ville-de-vannes",
 }
 
 export enum ThemeLabel {
@@ -12,6 +13,7 @@ export enum ThemeLabel {
   LightBlue = "Thème bleu clair",
   BordeauxMetropole = "Thème Bordeaux Métropole",
   Soliguide = "Thème Soliguide",
+  VilleDeVannes = "Thème Ville de Vannes",
   MesAidesOrg = "mes-aides.org",
   ArcEnCiel = "Thème arc enciel",
 }
