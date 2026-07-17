@@ -51,7 +51,7 @@ const router = createRouter({
         headTitle: `Ma simulation sur le simulateur d'aides ${context.name}`,
       },
       beforeEnter(to) {
-        if (!to.params.fieldName) {
+        if (to.name === "simulation") {
           const theme = to.params.theme || ""
           return `${theme}/simulation/individu/demandeur/date_naissance`
         } else {
