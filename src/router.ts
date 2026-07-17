@@ -6,6 +6,9 @@ import { getTitleFromRoute } from "@/lib/transition.js"
 import { useStore } from "@/stores/index.js"
 import ABTestingService from "@/plugins/ab-testing-service.js"
 
+import ThemeService from "./plugins/theme-service.js"
+
+
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes: [
@@ -42,12 +45,19 @@ const router = createRouter({
       redirect: (to) => `/api/france-connect${to.fullPath}`,
     },
     {
-      path: "/simulation",
+      path: "/:theme?/simulation",
       name: "simulation",
-      redirect: "/simulation/individu/demandeur/date_naissance",
       component: context.Simulation,
       meta: {
         headTitle: `Ma simulation sur le simulateur d'aides ${context.name}`,
+      },
+      beforeEnter(to, from) {
+        console.log({t: this, to, from})
+        if (!to.params.fieldName) {
+          return `${to.params.theme}/simulation/individu/demandeur/date_naissance`
+        } else {
+          return
+        }
       },
       children: [
         {
@@ -507,6 +517,20 @@ router.beforeEach((to, from, next) => {
     }
   }
 
+  //
+  console.log(ThemeService.options)
+  const styleElement = document.createElement("style")
+  //styleElement.textContent = defaultTheme.value
+  document.head.appendChild(styleElement)
+
+  const match = ThemeService.options.find((option) => option.label === to.params.theme)
+  if (!match) {
+    //Sentry.captureMessage(`Invalid theme label ${to.params.theme}`)
+  } else {
+    styleElement.textContent = match.value
+  }
+
+  //
   next()
 })
 
