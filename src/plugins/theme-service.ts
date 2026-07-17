@@ -43,7 +43,7 @@ const options = [
     title: ThemeLabel.ArcEnCiel,
     label: Theme.ArcEnCiel,
     value: ArcEnCiel,
-  }
+  },
 ]
 
 const defaultTheme = options[0]
