@@ -16,8 +16,15 @@ const StateService = {
       const store = useStore()
       const nextStep = getNextStep(this.$route, store.getAllSteps)
       store.updateCurrentAnswers(nextStep.path)
-      this.$router.push(nextStep.path).catch((failure) => {
-        window.location = nextStep.path
+      const next = nextStep.path
+      let fullyQualifiedNext
+      if (this.$route.params.theme) {
+        fullyQualifiedNext = `/${this.$route.params.theme}${next}`
+      } else {
+        fullyQualifiedNext = next
+      }
+      this.$router.push(fullyQualifiedNext).catch((failure) => {
+        window.location = fullyQualifiedNext
         if (isNavigationFailure(failure, NavigationFailureType.cancelled)) {
           sendEventToMatomo({
             category: EventCategory.Parcours,

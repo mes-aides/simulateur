@@ -113,7 +113,9 @@ export default {
     }
   },
   data() {
-    const entityName = this.$route.path.split("/")[2]
+    const comps = this.$route.path.split("/")
+    const simulationIndex = comps.indexOf("simulation")
+    const entityName = comps[simulationIndex + 1]
     const id = (this.params || this.$route.params).id
     const value = getAnswer(
       this.store.simulation.answers.all,
