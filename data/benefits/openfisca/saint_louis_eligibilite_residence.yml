@@ -4,10 +4,6 @@ description: Le centre communal d'action sociale de Saint-Louis vous accompagne 
 prefix: un
 link: https://saintlouis.re/ccas-saint-louis/117-ccas
 teleservicePrefill: ccas_saint_louis
-conditions_generales:
-  - type: communes
-    values:
-      - "97414"
 type: bool
 entity: menages
 openfiscaPeriod: thisMonth
