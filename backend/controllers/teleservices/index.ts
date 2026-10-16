@@ -18,6 +18,15 @@ dayjs.locale("fr")
 
 const teleservices = [
   {
+    name: "ccas_saint_louis",
+    class: OpenFiscaResponse,
+    public: true,
+    destination: {
+      label: "Transférer les informations",
+      url: "https://noutdroits.saintlouis.re/noutdroits/simulator/result/{{token}}",
+    },
+  },
+  {
     name: "ccas_saint_louis_preprod",
     class: OpenFiscaResponse,
     public: true,
