@@ -23,7 +23,7 @@ const teleservices = [
     public: true,
     destination: {
       label: "Transférer les informations",
-      url: "https://noutdroits.saintlouis.re/noutdroits/simulator/result/{{token}}",
+      url: "https://noutdroits.saintlouis.re/simulator/result/{{token}}",
     },
   },
   {
